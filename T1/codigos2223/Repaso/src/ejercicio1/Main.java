@@ -23,7 +23,7 @@ public class Main {
 
             horas = calendario.get(Calendar.HOUR_OF_DAY);
             minutos = calendario.get(Calendar.MINUTE);
-            mes = calendario.get(Calendar.MONTH);
+            mes = calendario.get(Calendar.MONTH)+1;
             anio = calendario.get(Calendar.YEAR);
             dia = calendario.get(Calendar.DAY_OF_MONTH);
 
@@ -35,7 +35,7 @@ public class Main {
                 tipoSaludo = "Buenas noches";
             }
 
-            
+
 
             System.out.println("quieres continuar?");
             opcion = scanner.next();
