@@ -16,6 +16,8 @@ public class Main {
             System.out.println("2. listar array");
             System.out.println("3. ordenar array");
             System.out.println("4. vaciar array");
+            System.out.println("5. Buscar elemento");
+            System.out.println("6. Sustituir elemento");
             System.out.println("¿que opcion quieres? ");
             opcion = scanner.nextInt();
             switch (opcion){
@@ -43,12 +45,30 @@ public class Main {
                     numeros = null;
                     System.out.println("vaciado completo");
                     break;
+                case 5:
+                    System.out.println("¿Que elemento quieres bucar?");
+                    int elemento = scanner.nextInt();
+                    for (int i = 0; i < numeros.length; i++) {
+                        if (numeros[i] == elemento){
+                            System.out.printf("Elemento %d encontrado en la posicion %d%n", elemento, i+1);
+                        }
+                    }
+                    break;
+                case 6:
+                    System.out.println("Indica el elemento que quieres sustituir");
+                    int sustituto = scanner.nextInt();
+                    for ( int item : numeros ) {
+                        if (sustituto == item){
+                            item = sustituto;
+                        }
+                    }
+                    break;
                 default:
                     System.out.println("Opcion incorrecta");
                     break;
             }
 
-        }while (opcion !=5);
+        }while (opcion !=0);
 
 
 
