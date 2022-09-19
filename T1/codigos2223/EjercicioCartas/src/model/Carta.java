@@ -12,8 +12,6 @@ public class Carta {
         this.palo = palo;
     }
 
-
-
     public int getValor() {
         return valor;
     }
