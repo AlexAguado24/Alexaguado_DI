@@ -14,9 +14,6 @@ public class Main {
         String respuesta2 = "";
         System.out.println("Indica el numero del sorteo");
         do {
-            if (respuesta2.equalsIgnoreCase("s")){
-                numAleatorio = (int)(Math.random()*101);
-            }
             respuesta = scanner.nextInt();
 
             if (respuesta > numAleatorio){
@@ -27,17 +24,22 @@ public class Main {
             }
             if (respuesta == numAleatorio){
                 System.out.println("Enhorabuena, el numero era "+ numAleatorio);
-                System.out.println("EL numero de intentos ha sido"+ intentos);
+                System.out.println("EL numero de intentos ha sido "+ intentos);
                 System.out.println("Quieres volver a intentarlo?");
                 respuesta2 = scanner.next();
+                if (respuesta2.equalsIgnoreCase("s")){
+                    numAleatorio = (int)(Math.random()*101);
+                    System.out.println("Indica el numero");
+                    respuesta2 = "";
+                } else{
+                    respuesta2 = "n";
+                }
                 intentos = 0;
             }
             intentos++;
-
         } while (!respuesta2.equalsIgnoreCase("n"));
 
 
     }
 
-    public int numeroAleatorio
 }
