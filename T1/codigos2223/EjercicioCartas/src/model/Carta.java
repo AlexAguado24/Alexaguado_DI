@@ -3,17 +3,17 @@ package model;
 public class Carta {
 
     private int valor;
-    private char palo;
+    private String palo;
 
     public Carta() {}
 
-    public Carta(int valor, char palo) {
+    public Carta(int valor, String palo) {
         this.valor = valor;
         this.palo = palo;
     }
 
     public void mostrarDatos(){
-        System.out.println(getValor()+getPalo());
+        System.out.println(getValor() +" "+getPalo());
     }
 
     public int getValor() {
@@ -24,11 +24,11 @@ public class Carta {
         this.valor = valor;
     }
 
-    public char getPalo() {
+    public String getPalo() {
         return palo;
     }
 
-    public void setPalo(char palo) {
+    public void setPalo(String palo) {
         this.palo = palo;
     }
 
