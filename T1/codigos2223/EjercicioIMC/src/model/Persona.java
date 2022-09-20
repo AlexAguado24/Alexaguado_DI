@@ -26,25 +26,41 @@ public class Persona {
         this.altura = 0.0;
     }
 
-    public Persona(String nombre, String DNI, String sexo, double peso, double altura, int edad) {
+    public Persona(String nombre /*String DNI*/,int edad, String sexo, double peso, double altura) {
         this.nombre = nombre;
-        this.DNI = DNI;
+        this.edad = edad;
+        //this.DNI = DNI;
         this.sexo = sexo;
         this.peso = peso;
         this.altura = altura;
-        this.edad = edad;
     }
 
     //metodos
+    public void mostrarDatos (){
+        System.out.println(getNombre());
+        System.out.println(getEdad());
+        System.out.println(getSexo());
+        System.out.println(getPeso());
+        System.out.println(getAltura());
+    }
+
     public int calcularIMC(){
         double pesoIdeal;
         pesoIdeal = (peso/(altura*2));
         if (pesoIdeal < 20){
             return -1;
-        } else if (pesoIdeal > 20 || pesoIdeal < 25) {
-
+        } else if (pesoIdeal >= 20 && pesoIdeal <= 25) {
+            return 0;
         } else {
-            
+            return 1;
+        }
+    }
+
+    public boolean esMayorDeEdad(){
+        if (new Persona().edad >= 18){
+            return true;
+        } else {
+            return false;
         }
     }
 
