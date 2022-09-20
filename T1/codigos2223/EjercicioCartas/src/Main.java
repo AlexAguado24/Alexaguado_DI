@@ -11,7 +11,7 @@ public class Main {
 
         ArrayList<Carta> baraja = new ArrayList<>();
 
-        
+
 
         Collections.shuffle(baraja);
 
