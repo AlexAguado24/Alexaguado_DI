@@ -14,6 +14,10 @@ public class Gasolinera {
         this.ganancias = 0;
     }
 
+    public void añadirSurtidores(Surtidor surtidor){
+        surtidores.add(surtidor);
+    }
+
     public int obtenerGanancias(){
         return this.ganancias;
     }

@@ -13,7 +13,9 @@ public class Main {
         Surtidor surtidor3 = new Surtidor("super");
 
         Gasolinera gasolinera = new Gasolinera("BP");
-
+        gasolinera.añadirSurtidores(surtidor1);
+        gasolinera.añadirSurtidores(surtidor2);
+        gasolinera.añadirSurtidores(surtidor3);
 
         Coche coche = new Coche("gasolina");
 
