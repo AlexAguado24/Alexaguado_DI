@@ -22,7 +22,7 @@ public class Coche {
             System.out.println("La gasolina que necesita el coche es de otro tipo");
         }
         setLitrosDeposito(cantidadLitros);
-        surtidor.setCapacidadActual(-cantidadLitros);
+        surtidor.setCapacidadActual(surtidor.getCapacidadActual()-cantidadLitros);
     }
 
     public String getTipoGasolina() {
