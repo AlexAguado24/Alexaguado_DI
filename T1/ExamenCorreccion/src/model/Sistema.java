@@ -23,8 +23,13 @@ public class Sistema {
 
         for (Paciente item : listaPaciente) {
             if (item.getNumSS() == nss){
-
+                System.out.println("El paciente ya estaba registrado");
+                existe = true;
+                break;
             }
+        }
+        if (!existe) {
+            
         }
     }
 
