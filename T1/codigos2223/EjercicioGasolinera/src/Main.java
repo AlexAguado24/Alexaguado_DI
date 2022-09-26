@@ -10,7 +10,7 @@ public class Main {
 
         Surtidor surtidor1 = new Surtidor(1000,"gasolina");
         Surtidor surtidor2 = new Surtidor(2000,"diesel");
-        Surtidor surtidor3 = new Surtidor("super");
+        Surtidor surtidor3 = new Surtidor("gasolina");
 
         Gasolinera gasolinera = new Gasolinera("BP");
         gasolinera.añadirSurtidores(surtidor1);
@@ -18,6 +18,13 @@ public class Main {
         gasolinera.añadirSurtidores(surtidor3);
 
         Coche coche = new Coche("gasolina");
+
+
+        coche.ponerGasolina(surtidor1,1050);
+
+        System.out.println(surtidor1.getCapacidadActual());
+
+
 
     }
 }

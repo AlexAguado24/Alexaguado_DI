@@ -19,6 +19,7 @@ public class Gasolinera {
     }
 
     public int obtenerGanancias(){
+
         return this.ganancias;
     }
 

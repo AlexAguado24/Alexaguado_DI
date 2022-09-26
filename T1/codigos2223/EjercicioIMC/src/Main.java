@@ -44,6 +44,7 @@ public class Main {
                 System.out.println("Estas en sobrepeso ");
             }
             persona.mostrarDatos();
+            System.out.println();
         }
     }
 }

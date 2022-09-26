@@ -30,7 +30,7 @@ public class Surtidor {
     }
 
     public void quitarGasolina(int cantidad){
-        this.capacidadTotal += cantidad;
+        this.capacidadTotal -= cantidad;
     }
 
     public int getCapacidadTotal() {
