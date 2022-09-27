@@ -20,7 +20,7 @@ public class Main {
         Coche coche = new Coche("gasolina");
 
 
-        coche.ponerGasolina(surtidor1,1050);
+        coche.ponerGasolina(surtidor1,500);
 
         System.out.println(surtidor1.getCapacidadActual());
 
