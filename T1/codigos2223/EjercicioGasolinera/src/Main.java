@@ -13,15 +13,20 @@ public class Main {
         Surtidor surtidor3 = new Surtidor("gasolina");
 
         Gasolinera gasolinera = new Gasolinera("BP");
-        gasolinera.añadirSurtidores(surtidor1);
-        gasolinera.añadirSurtidores(surtidor2);
-        gasolinera.añadirSurtidores(surtidor3);
+        gasolinera.aniadirSurtidores(surtidor1);
+        gasolinera.aniadirSurtidores(surtidor2);
+        gasolinera.aniadirSurtidores(surtidor3);
 
         Coche coche = new Coche("gasolina");
+        Coche coche2 = new Coche("gasolina");
 
 
+
+        coche.ponerGasolina(surtidor1,600);
         coche.ponerGasolina(surtidor1,500);
+        coche2.ponerGasolina(surtidor2, 200);
 
+        System.out.println(coche.getLitrosDeposito());
         System.out.println(surtidor1.getCapacidadActual());
 
 

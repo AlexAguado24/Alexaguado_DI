@@ -11,18 +11,18 @@ public class Coche {
     }
 
     public void ponerGasolina(Surtidor surtidor, int cantidadLitros){
-        surtidor.quitarGasolina(cantidadLitros);
-        if (surtidor.getCapacidadActual() == 0 || surtidor.getCapacidadActual() < cantidadLitros){
+        //surtidor.quitarGasolina(cantidadLitros);
+        if (surtidor.getCapacidadActual()  <= cantidadLitros){
             System.out.println("El surtidor no tiene tantos litros para repostar");
-        }
-        if (!surtidor.isFunciona()){
+        } else if (!surtidor.isFunciona()) {
             System.out.println("Surtidor averiado");
-        }
-        if (!surtidor.getTipo().equalsIgnoreCase(getTipoGasolina())) {
+        } else if (!surtidor.getTipo().equalsIgnoreCase(getTipoGasolina())) {
             System.out.println("La gasolina que necesita el coche es de otro tipo");
+        } else {
+            System.out.println("Listros repostados");
+            setLitrosDeposito(cantidadLitros);
+            surtidor.setCapacidadActual(surtidor.getCapacidadActual()-cantidadLitros);
         }
-        setLitrosDeposito(cantidadLitros);
-        surtidor.setCapacidadActual(surtidor.getCapacidadActual()-cantidadLitros);
     }
 
     public String getTipoGasolina() {
