@@ -18,7 +18,7 @@ public class Main {
         Jugador jugador = new Jugador();
 
 
-        System.out.println("Empieza el Juego");
+        System.out.println("Empecemos");
         jugador.repartiendoCartas(jugador1, jugador2, baraja);
 
         for (int i = 0; i < turno; i++) {
