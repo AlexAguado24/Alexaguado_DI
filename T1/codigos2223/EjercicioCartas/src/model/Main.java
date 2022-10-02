@@ -77,7 +77,7 @@ public class Main {
                                 }
                                 opcion = -1;
                             } else {
-                                System.out.println("Cantidad de cartas incorrectas");
+                                System.out.println("Opcion incorrecta");
                             }
 
                         } while (opcion != -1);
