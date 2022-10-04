@@ -1,4 +1,4 @@
-module com.example.iniciofx {
+module com.pestanias.pestanias {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -10,6 +10,6 @@ module com.example.iniciofx {
     /*requires eu.hansolo.tilesfx;*/
     requires com.almasb.fxgl.all;
 
-    opens com.example.iniciofx to javafx.fxml;
-    exports com.example.iniciofx;
+    opens com.pestanias.pestanias to javafx.fxml;
+    exports com.pestanias.pestanias;
 }
