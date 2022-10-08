@@ -28,7 +28,10 @@
                     </rowConstraints>
                      <children>
                         <Label text="Pestaña destinad al uso de botones y textos" GridPane.columnSpan="3" GridPane.halignment="CENTER" />
-                        <Button fx:id="botonNormal" mnemonicParsing="false" text="pulsar" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                         <Button fx:id="botonNormal" mnemonicParsing="false" text="pulsar"
+                                 GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                         <Button fx:id="botonNormalDos" mnemonicParsing="false" text="pulsar"
+                                 GridPane.halignment="CENTER" GridPane.rowIndex="1"  GridPane.columnIndex="2"/>
                      </children>
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

@@ -17,18 +17,24 @@ public class MainController implements Initializable {
     private TabPane panelPestanias;
 
     @FXML
-    private Button botonNormal;
+    private Button botonNormal, botonNormalDos;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // se ejecuta cuando se asocia la parte grafica y la logica
-        botonNormal.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                //cuando el boton sea pulsado
-                System.out.println("Boton pulsado");
+        botonNormal.setOnAction(new ManejoPulsaciones());
+        botonNormalDos.setOnAction(new ManejoPulsaciones());
+    }
+    class ManejoPulsaciones implements EventHandler<ActionEvent>{
+        @Override
+        public void handle(ActionEvent actionEvent) {
+            if (actionEvent.getSource() == botonNormal) {
+                System.out.println("Boton 1 pulsado");
+            } else if (actionEvent.getSource() == botonNormalDos){
+                System.out.println("Boton 2 pulsado");
+
             }
-        });
+        }
     }
 }
