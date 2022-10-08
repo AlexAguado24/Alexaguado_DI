@@ -2,12 +2,18 @@ package com.example.iniciofx;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
+
+    //variables
+    @FXML
+    private Button botonPrueba;
+
     @FXML
     private Label welcomeText;
 
