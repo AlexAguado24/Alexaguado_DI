@@ -37,6 +37,7 @@ public class MainController implements Initializable {
         /*botonNormal.setEffect(sombraExterior);
         botonNormalDos.setEffect(sombraExterior);*/
         instancias();
+        asociarDatos();
         configurarBotones();
         acciones();
     }
@@ -49,6 +50,8 @@ public class MainController implements Initializable {
 
     private void configurarBotones(){
         //imageView --> image
+        botonToggle.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("switchoff.png"))));
+        botonToggle.setBackground(null);
 
         botonNormal.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("power_on.png"))));
         botonNormal.setBackground(null);
@@ -76,13 +79,20 @@ public class MainController implements Initializable {
         botonNormalDos.addEventHandler(MouseEvent.MOUSE_EXITED, new ManejoRaton());
         botonNormal.addEventHandler(MouseEvent.MOUSE_PRESSED, new ManejoRaton());
         botonNormal.addEventHandler(MouseEvent.MOUSE_CLICKED, new ManejoRaton());*/
-        /*botonToggle.selectedProperty().addListener(new ChangeListener<Boolean>() {
+        botonToggle.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean newValue) {
                 botonNormal.setDisable(newValue);
                 botonNormalDos.setDisable(newValue);
+                if (newValue) {
+                    botonToggle.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("switchon.png"))));
+                    botonToggle.setBackground(null);
+                } else {
+                    botonToggle.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("switchoff.png"))));
+                    botonToggle.setBackground(null);
+                }
             }
-        });*/
+        });
         grupoRadios.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observableValue, Toggle oldValue, Toggle newValue) {
@@ -132,7 +142,8 @@ public class MainController implements Initializable {
                 /*System.out.println("Boton 1 pulsado");*/
                 botonToggle.setSelected(true);
             } else if (actionEvent.getSource() == botonNormalDos) {
-                System.out.println("Boton 2 pulsado");
+                RadioButton radioSeleccionado = (RadioButton) grupoRadios.getSelectedToggle();
+                
             }
         }
     }
