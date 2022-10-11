@@ -143,7 +143,7 @@ public class MainController implements Initializable {
                 botonToggle.setSelected(true);
             } else if (actionEvent.getSource() == botonNormalDos) {
                 RadioButton radioSeleccionado = (RadioButton) grupoRadios.getSelectedToggle();
-                
+
             }
         }
     }
