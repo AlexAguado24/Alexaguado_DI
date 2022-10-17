@@ -160,7 +160,7 @@ public class MainController implements Initializable {
                 RadioButton radioSeleccionado = (RadioButton) grupoRadios.getSelectedToggle();
             } else if (actionEvent.getSource() == botonSuma) {
                 if (Character.isDigit(textField1.getText().charAt(0)) && Character.isDigit(textField2.getText().charAt(0))) {
-                    tipoOperacion = 0; 
+                    tipoOperacion = 0;
                 } else {
 
                 }

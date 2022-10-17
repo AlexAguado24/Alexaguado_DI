@@ -100,7 +100,7 @@
                               <Button fx:id="botonMultiplicacion" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="*" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
-                        <Label text="textoResultado" GridPane.columnSpan="3" GridPane.rowIndex="4" />
+                        <Label GridPane.columnSpan="3" GridPane.rowIndex="4" />
                      </children>
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
