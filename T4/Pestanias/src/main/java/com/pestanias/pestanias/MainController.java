@@ -7,11 +7,13 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,15 +23,21 @@ public class MainController implements Initializable {
     //elementos gráficos
     @FXML
     private TabPane panelPestanias;
-    private DropShadow sombraExterior;
     @FXML
     private Button botonNormal, botonNormalDos;
     @FXML
     private ToggleButton botonToggle;
     @FXML
     private RadioButton radio1, radio2, radio3;
-
+    @FXML
+    private TextField textField1, textField2;
+    @FXML
+    private Button botonSuma,botonResta, botonMultiplicacion, botonDivision, botonIgual;
+    @FXML
+    private GridPane gridBotones;
     private ToggleGroup grupoRadios;
+    private DropShadow sombraExterior;
+    private int tipoOperacion = -1;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -71,6 +79,12 @@ public class MainController implements Initializable {
     private void acciones(){
         botonNormal.setOnAction(new ManejoPulsaciones());
         botonNormalDos.setOnAction(new ManejoPulsaciones());
+        for (Node child : gridBotones.getChildren()) {
+            if (child instanceof Button) {
+                ((Button) child).setOnAction(new ManejoPulsaciones());
+            }
+        }
+        //botonResta.setOnAction(new ManejoPulsaciones());
 
         //botonToggle.setOnAction(new ManejoPulsaciones());
         /*botonNormal.addEventHandler(MouseEvent.MOUSE_ENTERED, new ManejoRaton());
@@ -136,6 +150,7 @@ public class MainController implements Initializable {
         }
     }
     class ManejoPulsaciones implements EventHandler<ActionEvent>{
+
         @Override
         public void handle(ActionEvent actionEvent) {
             if (actionEvent.getSource() == botonNormal) {
@@ -143,6 +158,16 @@ public class MainController implements Initializable {
                 botonToggle.setSelected(true);
             } else if (actionEvent.getSource() == botonNormalDos) {
                 RadioButton radioSeleccionado = (RadioButton) grupoRadios.getSelectedToggle();
+            } else if (actionEvent.getSource() == botonSuma) {
+                if (Character.isDigit(textField1.getText().charAt(0)) && Character.isDigit(textField2.getText().charAt(0))) {
+                    tipoOperacion = 0; 
+                } else {
+
+                }
+            } else if (actionEvent.getSource() == botonResta) {
+            } else if (actionEvent.getSource() == botonMultiplicacion) {
+            } else if (actionEvent.getSource() == botonDivision) {
+            } else if (actionEvent.getSource() == botonIgual) {
 
             }
         }
