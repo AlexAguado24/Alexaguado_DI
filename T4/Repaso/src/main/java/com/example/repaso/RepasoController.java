@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
@@ -25,8 +27,20 @@ public class RepasoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        sombraExterior = new DropShadow();
+        configurarBotones();
+        instancias();
+        acciones();
 
+    }
+
+    private void configurarBotones(){
+        botonNormal.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("power_on.png"))));
+        botonNormal.setBackground(null);
+        botonNormalDos.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("power_off.png"))));
+        botonNormalDos.setBackground(null);
+    }
+
+    private void acciones(){
         botonNormal.setOnAction(new ManejoPulsaciones());
         botonNormalDos.setOnAction(new ManejoPulsaciones());
 
@@ -34,6 +48,12 @@ public class RepasoController implements Initializable {
         botonNormalDos.addEventHandler(MouseEvent.MOUSE_ENTERED, new ManejoRaton());
         botonNormal.addEventHandler(MouseEvent.MOUSE_EXITED, new ManejoRaton());
         botonNormalDos.addEventHandler(MouseEvent.MOUSE_EXITED, new ManejoRaton());
+        botonNormal.addEventHandler(MouseEvent.MOUSE_CLICKED,new ManejoRaton());
+        botonNormal.addEventHandler(MouseEvent.MOUSE_PRESSED,new ManejoRaton());
+    }
+
+    private void instancias(){
+        sombraExterior = new DropShadow();
     }
 
     class ManejoRaton implements EventHandler<MouseEvent>{
@@ -54,6 +74,10 @@ public class RepasoController implements Initializable {
                 } else if (mouseEvent.getSource() == botonNormalDos) {
                     botonNormalDos.setEffect(null);
                 }
+            } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_CLICKED) {
+                botonNormal.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("power_on.png"))));
+            } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
+                botonNormal.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("power_off.png"))));
             }
         }
     }
