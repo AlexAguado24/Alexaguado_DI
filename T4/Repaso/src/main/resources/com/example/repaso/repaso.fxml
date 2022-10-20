@@ -13,7 +13,7 @@
    <center>
       <TabPane fx:id="panelPestanias" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
-          <Tab text="Botones y texto">
+          <Tab text="Botones y textos">
                <content>
                   <GridPane>
                     <columnConstraints>
