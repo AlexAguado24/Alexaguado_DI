@@ -43,8 +43,8 @@ public class RepasoController implements Initializable {
 
     private void asociarDatos(){
         radio1.setUserData(new TipoPago("Tarjeta","Pago con tarjeta",0));
-        radio1.setUserData(new TipoPago("Tranfer","Pago con tranferencia",10));
-        radio1.setUserData(new TipoPago("PayPal","Pago con Paypal",20));
+        radio2.setUserData(new TipoPago("Tranfer","Pago con tranferencia",10));
+        radio3.setUserData(new TipoPago("PayPal","Pago con Paypal",20));
     }
 
     private void configurarBotones(){
@@ -62,9 +62,10 @@ public class RepasoController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Toggle> observableValue, Toggle oldValue, Toggle newValue) {
                 RadioButton radioButton = (RadioButton) newValue;
-                System.out.println(((TipoPago)radioButton.getUserData()).getNombre());
-                System.out.println(((TipoPago)radioButton.getUserData()).getDescripcion());
-                System.out.println(((TipoPago)radioButton.getUserData()).getComision());
+                TipoPago tipoPago = (TipoPago) radioButton.getUserData();
+                System.out.println(tipoPago.getNombre());
+                System.out.println(tipoPago.getDescripcion());
+                System.out.println(tipoPago.getComision());
             }
         });
 
