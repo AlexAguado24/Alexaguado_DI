@@ -15,8 +15,10 @@ import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,12 +35,15 @@ public class MainController implements Initializable {
     @FXML
     private RadioButton radio1, radio2, radio3;
     @FXML
-    private TextField textField1, textField2;
+    private Label labelNombre, labelDesc, labelComision;
     @FXML
-    private Button botonSuma,botonResta, botonMultiplicacion, botonDivision, botonIgual, botonComprobar;
+    private TextField textFiledUno, textFiledDos;
+    @FXML
+    private Button botonSuma,botonResta, botonMulti, botonDiv, botonIgual,botonMostrar, botonOcultar, botonComprobar;
     @FXML
     private GridPane gridBotones;
-
+    @FXML
+    private VBox panelMostrar;
     @FXML
     private ChoiceBox<String> choice;
     @FXML
@@ -47,8 +52,10 @@ public class MainController implements Initializable {
     private ComboBox<Usuario> comboUsuario;
     @FXML
     private Spinner<String> spinner;
+    @FXML
+    private ListView<String> list;
 
-    private ObservableList<String> listaChoice, listaCombo, listaSpinner;
+    private ObservableList<String> listaChoice, listaCombo, listaSpinner, listaListView;
     private ObservableList<Usuario> listaUsuarios;
 
     private ToggleGroup grupoRadios;
@@ -73,19 +80,26 @@ public class MainController implements Initializable {
 
         combo.setItems(listaCombo);
         choice.setItems(listaChoice);
+        comboUsuario.setItems(listaUsuarios);
+        spinner.setValueFactory(new SpinnerValueFactory.ListSpinnerValueFactory<String>(listaSpinner));
+        list.setItems(listaListView);
     }
 
     private void configurarBotones(){
         //imageView --> image
-        botonToggle.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("switchoff.png"))));
-        botonToggle.setBackground(null);
-
         botonNormal.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("power_on.png"))));
         botonNormal.setBackground(null);
 
 
         botonNormalDos.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("power_off.png"))));
         botonNormalDos.setBackground(null);
+
+        botonToggle.setBackground(null);
+        if (botonToggle.isSelected()) {
+            botonToggle.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("switchon.png"))));
+        } else {
+            botonToggle.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("switchoff.png"))));
+        }
 
     }
 
@@ -104,16 +118,21 @@ public class MainController implements Initializable {
         listaUsuarios = FXCollections.observableArrayList();
         listaUsuarios.addAll(
                 new Usuario(1,"Paco","Martinez", "pacoinalaysequedaduro@gmail.com"),
-                new Usuario(1,"Marcos","Salas", "selapegaenlapera@gmail.com"),
-                new Usuario(1,"Andres","Zama", "zamarreñoboy@gmail.com"),
-                new Usuario(1,"Marta","Pacheco", "lapachequita@gmail.com"),
-                new Usuario(1,"Patri","Fraile", "frailecillo@gmail.com")
+                new Usuario(2,"Marcos","Salas", "selapegaenlapera@gmail.com"),
+                new Usuario(3,"Andres","Zama", "zamarreñoboy@gmail.com"),
+                new Usuario(4,"Marta","Pacheco", "lapachequita@gmail.com"),
+                new Usuario(5,"Patri","Fraile", "frailecillo@gmail.com")
         );
+        listaListView = FXCollections.observableArrayList();
+        listaListView.addAll("Opcion1","Opcion2","Opcion3","Opcion4","Opcion5","Opcion6","Opcion7","Opcion8");
     }
 
     private void acciones(){
+        botonComprobar.setOnAction(new ManejoPulsaciones());
         botonNormal.setOnAction(new ManejoPulsaciones());
         botonNormalDos.setOnAction(new ManejoPulsaciones());
+        botonMostrar.setOnAction(new ManejoPulsaciones());
+        botonOcultar.setOnAction(new ManejoPulsaciones());
         for (Node child : gridBotones.getChildren()) {
             if (child instanceof Button) {
                 ((Button) child).setOnAction(new ManejoPulsaciones());
@@ -122,12 +141,12 @@ public class MainController implements Initializable {
         //botonResta.setOnAction(new ManejoPulsaciones());
 
         //botonToggle.setOnAction(new ManejoPulsaciones());
-        /*botonNormal.addEventHandler(MouseEvent.MOUSE_ENTERED, new ManejoRaton());
-        botonNormalDos.addEventHandler(MouseEvent.MOUSE_ENTERED, new ManejoRaton());
+        botonNormal.addEventHandler(MouseEvent.MOUSE_ENTERED, new ManejoRaton());
         botonNormal.addEventHandler(MouseEvent.MOUSE_EXITED, new ManejoRaton());
+        botonNormalDos.addEventHandler(MouseEvent.MOUSE_ENTERED, new ManejoRaton());
         botonNormalDos.addEventHandler(MouseEvent.MOUSE_EXITED, new ManejoRaton());
+        botonNormal.addEventHandler(MouseEvent.MOUSE_CLICKED, new ManejoRaton());
         botonNormal.addEventHandler(MouseEvent.MOUSE_PRESSED, new ManejoRaton());
-        botonNormal.addEventHandler(MouseEvent.MOUSE_CLICKED, new ManejoRaton());*/
         botonToggle.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean newValue) {
@@ -135,10 +154,8 @@ public class MainController implements Initializable {
                 botonNormalDos.setDisable(newValue);
                 if (newValue) {
                     botonToggle.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("switchon.png"))));
-                    botonToggle.setBackground(null);
                 } else {
                     botonToggle.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("switchoff.png"))));
-                    botonToggle.setBackground(null);
                 }
             }
         });
@@ -146,12 +163,19 @@ public class MainController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Toggle> observableValue, Toggle oldValue, Toggle newValue) {
                 RadioButton radioButton = (RadioButton)newValue;
-                System.out.println(((TipoDePago)radioButton.getUserData()).getNombre());
-                System.out.println(((TipoDePago)radioButton.getUserData()).getDescripcion());
-                System.out.println(((TipoDePago)radioButton.getUserData()).getComision());
+                TipoDePago tipoDePago = (TipoDePago) radioButton.getUserData();
+                labelNombre.setText(tipoDePago.getNombre());
+                labelDesc.setText(tipoDePago.getDescripcion());
+                labelComision.setText(String.valueOf(tipoDePago.getComision()));
             }
         });
-        botonComprobar.setOnAction(new ManejoPulsaciones());
+        textFiledDos.setOnKeyTyped(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                char letraPulsada = keyEvent.getCharacter().charAt(0);
+                System.out.println(Character.isDigit(letraPulsada));
+            }
+        });
         combo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String newValue) {
@@ -171,6 +195,12 @@ public class MainController implements Initializable {
                 System.out.println("Nombre "+ newValue.getNombre());
                 System.out.println("Apellido "+ newValue.getApellido());
                 System.out.println("correo "+ newValue.getCorreo());
+            }
+        });
+        list.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                System.out.println("Cambio en la lista, valor nuevo " + t1);
             }
         });
     }
@@ -215,14 +245,14 @@ public class MainController implements Initializable {
             } else if (actionEvent.getSource() == botonNormalDos) {
                 RadioButton radioSeleccionado = (RadioButton) grupoRadios.getSelectedToggle();
             } else if (actionEvent.getSource() == botonSuma) {
-                if (Character.isDigit(textField1.getText().charAt(0)) && Character.isDigit(textField2.getText().charAt(0))) {
+                if (Character.isDigit(textFiledUno.getText().charAt(0)) && Character.isDigit(textFiledDos.getText().charAt(0))) {
                     tipoOperacion = 0;
                 } else {
 
                 }
             } else if (actionEvent.getSource() == botonResta) {
-            } else if (actionEvent.getSource() == botonMultiplicacion) {
-            } else if (actionEvent.getSource() == botonDivision) {
+            } else if (actionEvent.getSource() == botonMulti) {
+            } else if (actionEvent.getSource() == botonDiv) {
             } else if (actionEvent.getSource() == botonIgual) {
 
             } else if (actionEvent.getSource() == botonComprobar) {
@@ -230,17 +260,18 @@ public class MainController implements Initializable {
 
                 String seleccionCombo = combo.getSelectionModel().getSelectedItem();
                 String seleccionChoice = choice.getSelectionModel().getSelectedItem();
-                String usuarioNombre = comboUsuario.getSelectionModel().selectedItemProperty().getName();
+
+                String seleccionLista = list.getSelectionModel().getSelectedItem();
 
                 System.out.println(combo.getSelectionModel().getSelectedItem());
                 System.out.println(choice.getSelectionModel().getSelectedItem());
-                System.out.println(comboUsuario.getSelectionModel().getSelectedItem());
+
+                System.out.println(seleccionLista);
 
 
                 if (combo.getSelectionModel().getSelectedIndex() >-1 && choice.getSelectionModel().getSelectedIndex()>-1){
                     System.out.printf("Seleccion de combo %s%n",seleccionCombo);
                     System.out.printf("Seleccion de choice %s%n",seleccionChoice);
-                    System.out.printf("Seleccion de choice %s%n",usuarioNombre);
                 } else {
                     System.out.println("Uno de los dos elementos no tiene seleccion");
                 }
