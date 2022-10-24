@@ -102,11 +102,13 @@ public class MainController implements Initializable {
         listaSpinner.addAll("OpcionSP 1","OpcionSP 2", "OpcionSP 3", "OpcionSP 4", "OpcionSP 5");
 
         listaUsuarios = FXCollections.observableArrayList();
-        listaUsuarios.addAll(new Usuario(1,"Paco","Martinez", "pacoinalaysequedaduro@gmail.com"));
-        listaUsuarios.addAll(new Usuario(1,"Marcos","Salas", "selapegaenlapera@gmail.com"));
-        listaUsuarios.addAll(new Usuario(1,"Andres","Zama", "zamarreñoboy@gmail.com"));
-        listaUsuarios.addAll(new Usuario(1,"Marta","Pacheco", "lapachequita@gmail.com"));
-        listaUsuarios.addAll(new Usuario(1,"Patri","Fraile", "frailecillo@gmail.com"));
+        listaUsuarios.addAll(
+                new Usuario(1,"Paco","Martinez", "pacoinalaysequedaduro@gmail.com"),
+                new Usuario(1,"Marcos","Salas", "selapegaenlapera@gmail.com"),
+                new Usuario(1,"Andres","Zama", "zamarreñoboy@gmail.com"),
+                new Usuario(1,"Marta","Pacheco", "lapachequita@gmail.com"),
+                new Usuario(1,"Patri","Fraile", "frailecillo@gmail.com")
+        );
     }
 
     private void acciones(){
