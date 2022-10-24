@@ -17,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -44,6 +45,8 @@ public class MainController implements Initializable {
     private GridPane gridBotones;
     @FXML
     private VBox panelMostrar;
+    @FXML
+    private BorderPane panelGeneral;
     @FXML
     private ChoiceBox<String> choice;
     @FXML
@@ -138,15 +141,31 @@ public class MainController implements Initializable {
                 ((Button) child).setOnAction(new ManejoPulsaciones());
             }
         }
-        //botonResta.setOnAction(new ManejoPulsaciones());
+        /*botonSuma.setOnAction(new ManejoPulsaciones());
+        botonResta.setOnAction(new ManejoPulsaciones());
+        botonMulti.setOnAction(new ManejoPulsaciones());
+        botonDiv.setOnAction(new ManejoPulsaciones());
+        botonIgual.setOnAction(new ManejoPulsaciones());*/
 
-        //botonToggle.setOnAction(new ManejoPulsaciones());
+        // radio1.setOnAction(new ManejoPulsaciones());
+        // botonToggle.setOnAction(new ManejoPulsaciones());
+        grupoRadios.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observableValue, Toggle oldValue, Toggle newValue) {
+                RadioButton radioButton = (RadioButton)newValue;
+                TipoDePago tipoDePago = (TipoDePago) radioButton.getUserData();
+                labelNombre.setText(tipoDePago.getNombre());
+                labelDesc.setText(tipoDePago.getDescripcion());
+                labelComision.setText(String.valueOf(tipoDePago.getComision()));
+            }
+        });
         botonNormal.addEventHandler(MouseEvent.MOUSE_ENTERED, new ManejoRaton());
         botonNormal.addEventHandler(MouseEvent.MOUSE_EXITED, new ManejoRaton());
         botonNormalDos.addEventHandler(MouseEvent.MOUSE_ENTERED, new ManejoRaton());
         botonNormalDos.addEventHandler(MouseEvent.MOUSE_EXITED, new ManejoRaton());
         botonNormal.addEventHandler(MouseEvent.MOUSE_CLICKED, new ManejoRaton());
         botonNormal.addEventHandler(MouseEvent.MOUSE_PRESSED, new ManejoRaton());
+
         botonToggle.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean newValue) {
@@ -159,16 +178,7 @@ public class MainController implements Initializable {
                 }
             }
         });
-        grupoRadios.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-            @Override
-            public void changed(ObservableValue<? extends Toggle> observableValue, Toggle oldValue, Toggle newValue) {
-                RadioButton radioButton = (RadioButton)newValue;
-                TipoDePago tipoDePago = (TipoDePago) radioButton.getUserData();
-                labelNombre.setText(tipoDePago.getNombre());
-                labelDesc.setText(tipoDePago.getDescripcion());
-                labelComision.setText(String.valueOf(tipoDePago.getComision()));
-            }
-        });
+
         textFiledDos.setOnKeyTyped(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
@@ -215,23 +225,21 @@ public class MainController implements Initializable {
                 } else if(mouseEvent.getSource() == botonNormalDos) {
                     botonNormalDos.setEffect(sombraExterior);
                 }
-            }
-            else if (mouseEvent.getEventType() == MouseEvent.MOUSE_EXITED){
+            } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_EXITED){
                 System.out.println("Evento raton saliente");
                 if (mouseEvent.getSource() == botonNormal) {
                     botonNormal.setEffect(null);
                 } else if(mouseEvent.getSource() == botonNormalDos) {
                     botonNormalDos.setEffect(null);
                 }
-            }
-            else if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
+            } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
                 System.out.println("Boton Pressed");
                 botonNormal.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("power_off.png"))));
-            }
-            else if (mouseEvent.getEventType() == MouseEvent.MOUSE_CLICKED) {
+            } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_CLICKED) {
                 System.out.println("Boton Clicked");
                 botonNormal.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("power_on.png"))));
-
+            } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED) {
+                System.out.println("Raton released");
             }
         }
     }
@@ -242,31 +250,64 @@ public class MainController implements Initializable {
             if (actionEvent.getSource() == botonNormal) {
                 /*System.out.println("Boton 1 pulsado");*/
                 botonToggle.setSelected(true);
+                System.out.println(textFiledUno.getText());
             } else if (actionEvent.getSource() == botonNormalDos) {
                 RadioButton radioSeleccionado = (RadioButton) grupoRadios.getSelectedToggle();
+                TipoDePago tipoPago = (TipoDePago) radioSeleccionado.getUserData();
+                System.out.println(tipoPago.getComision());
+                System.out.println(tipoPago.getNombre());
+                System.out.println(tipoPago.getDescripcion());
             } else if (actionEvent.getSource() == botonSuma) {
-                if (Character.isDigit(textFiledUno.getText().charAt(0)) && Character.isDigit(textFiledDos.getText().charAt(0))) {
-                    tipoOperacion = 0;
+                tipoOperacion = 0;
+                /*if (Character.isDigit(textFiledUno.getText().charAt(0)) && Character.isDigit(textFiledDos.getText().charAt(0))) {
+                    int suma = Integer.parseInt(String.valueOf(textFiledUno.getText().charAt(0))) + Integer.parseInt(String.valueOf(textFiledDos.getText().charAt(0)));
+                    System.out.println("La suma de los valores es "+suma);
                 } else {
-
-                }
+                    System.out.println("Alguno de los elementos no es numero");
+                }*/
             } else if (actionEvent.getSource() == botonResta) {
+                tipoOperacion = 1;
             } else if (actionEvent.getSource() == botonMulti) {
+                tipoOperacion = 2;
             } else if (actionEvent.getSource() == botonDiv) {
+                tipoOperacion = 3;
             } else if (actionEvent.getSource() == botonIgual) {
-
+                int op1 = Integer.parseInt(String.valueOf(textFiledUno.getText().charAt(0)));
+                int op2 = Integer.parseInt(String.valueOf(textFiledDos.getText().charAt(0)));
+                double resultado = 0.0;
+                switch (tipoOperacion) {
+                    case 0:
+                        resultado = op1 + op2;
+                        break;
+                    case 1:
+                        resultado = op1 - op2;
+                        break;
+                    case 2:
+                        resultado = op1 * op2;
+                        break;
+                    case 3:
+                        resultado = (double) op1 / op2;
+                        break;
+                }
+                System.out.printf("El resutaldo de la operacion es %.2f%n", resultado);
+            } else if (actionEvent.getSource() == botonMostrar) {
+                panelGeneral.setLeft(panelMostrar);
+            } else if (actionEvent.getSource() == botonOcultar) {
+                panelGeneral.getChildren().remove(panelMostrar);
             } else if (actionEvent.getSource() == botonComprobar) {
                 // seleccion de una lista
 
                 String seleccionCombo = combo.getSelectionModel().getSelectedItem();
                 String seleccionChoice = choice.getSelectionModel().getSelectedItem();
-
                 String seleccionLista = list.getSelectionModel().getSelectedItem();
-
                 System.out.println(combo.getSelectionModel().getSelectedItem());
-                System.out.println(choice.getSelectionModel().getSelectedItem());
-
                 System.out.println(seleccionLista);
+                System.out.println(choice.getSelectionModel().getSelectedItem());
+                String seleccionSpinner = spinner.getValue();
+
+                System.out.println(combo.getSelectionModel().getSelectedIndex());
+
+                System.out.println(seleccionSpinner);
 
 
                 if (combo.getSelectionModel().getSelectedIndex() >-1 && choice.getSelectionModel().getSelectedIndex()>-1){
