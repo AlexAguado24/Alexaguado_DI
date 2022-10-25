@@ -18,7 +18,7 @@ public class CalculadoraController implements Initializable {
     @FXML
     private BorderPane pantallaGeneral;
     @FXML
-    private GridPane panelSCI, botonesArit;
+    private GridPane panelSCI /*, botonesArit*/;
     @FXML
     private VBox panelRegister;
     @FXML
@@ -33,11 +33,11 @@ public class CalculadoraController implements Initializable {
         cerrarSCI.setOnAction(new ManejoBotones());
         botonRegister.setOnAction(new ManejoBotones());
         cerrarRegister.setOnAction(new ManejoBotones());
-        for (Node child : botonesArit.getChildren()) {
+        /*for (Node child : botonesArit.getChildren()) {
             if (child instanceof Button) {
                 ((Button)child).setOnAction(new ManejoBotones());
             }
-        }
+        }*/
     }
 
     class ManejoBotones implements EventHandler<ActionEvent> {
@@ -52,10 +52,7 @@ public class CalculadoraController implements Initializable {
                 pantallaGeneral.setRight(panelRegister);
             } else if (actionEvent.getSource() == cerrarRegister) {
                 pantallaGeneral.getChildren().remove(panelRegister);
-            } else if (b == ) {
-                
             }
-
         }
     }
 
