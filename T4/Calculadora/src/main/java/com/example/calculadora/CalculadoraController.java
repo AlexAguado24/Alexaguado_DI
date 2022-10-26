@@ -25,7 +25,12 @@ public class CalculadoraController implements Initializable {
     @FXML
     private Label pantalla;
     @FXML
-    private Button botonSCI, botonRegister, cerrarSCI, cerrarRegister, uno;
+    private Button botonSCI, botonRegister, cerrarSCI, cerrarRegister, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, botonDiv, botonMulti, botonResta, botonSuma, botonIgual,botonBorrar, botonPorcentaje, posneg, cero, coma, e ;
+    private double operandoUno = 0.0, operandoDos = 0.0;
+    private String signo;
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         acciones();
@@ -56,9 +61,52 @@ public class CalculadoraController implements Initializable {
             } else if (actionEvent.getSource() == cerrarRegister) {
                 pantallaGeneral.getChildren().remove(panelRegister);
             } else if (actionEvent.getSource() == uno){
-                pantalla.setText(uno.getText());
+                pantalla.setText(pantalla.getText()+uno.getText());
+            } else if (actionEvent.getSource() == dos) {
+                pantalla.setText(pantalla.getText()+dos.getText());
+            } else if (actionEvent.getSource() == tres) {
+                pantalla.setText(pantalla.getText()+tres.getText());
+            } else if (actionEvent.getSource() == cuatro) {
+                pantalla.setText(pantalla.getText()+cuatro.getText());
+            } else if (actionEvent.getSource() == cinco) {
+                pantalla.setText(pantalla.getText()+cinco.getText());
+            } else if (actionEvent.getSource() == seis) {
+                pantalla.setText(pantalla.getText()+seis.getText());
+            } else if (actionEvent.getSource() == siete) {
+                pantalla.setText(pantalla.getText()+siete.getText());
+            } else if (actionEvent.getSource() == ocho) {
+                pantalla.setText(pantalla.getText()+ocho.getText());
+            } else if (actionEvent.getSource() == nueve) {
+                pantalla.setText(pantalla.getText()+nueve.getText());
+            } else if (actionEvent.getSource() == cero) {
+                pantalla.setText(pantalla.getText()+cero.getText());
+            } else if (actionEvent.getSource() == coma) {
+                pantalla.setText(pantalla.getText()+coma.getText());
+            } else if (actionEvent.getSource() == botonSuma) {
+                signo = "+";
+                operandoUno = Double.parseDouble(pantalla.getText());
+                pantalla.setText("");
+            } else if (actionEvent.getSource() == botonResta) {
+                signo = "-";
+                operandoUno = Double.parseDouble(pantalla.getText());
+                pantalla.setText("");
+            } else if (actionEvent.getSource() == botonDiv) {
+                signo = "/";
+                operandoUno = Double.parseDouble(pantalla.getText());
+                pantalla.setText("");
+            } else if (actionEvent.getSource() == botonMulti) {
+                signo = "*";
+                operandoUno = Double.parseDouble(pantalla.getText());
+                pantalla.setText("");
+            } else if (actionEvent.getSource() == botonBorrar) {
+                signo = "";
+                pantalla.setText("");
+            } else if (actionEvent.getSource() == botonIgual) {
+                operandoDos = Double.parseDouble(pantalla.getText());
+                switch (signo) {
+                    
+                }
             }
         }
     }
-
 }
