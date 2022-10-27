@@ -104,7 +104,7 @@ public class CalculadoraController implements Initializable {
             } else if (actionEvent.getSource() == botonIgual) {
                 operandoDos = Double.parseDouble(pantalla.getText());
                 switch (signo) {
-                    
+
                 }
             }
         }
