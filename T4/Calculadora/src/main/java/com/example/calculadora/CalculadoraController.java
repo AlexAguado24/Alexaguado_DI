@@ -128,9 +128,6 @@ public class CalculadoraController implements Initializable {
                 textoRegister.appendText(pantalla.getText()+"=");
                 operandoDos = Double.parseDouble(pantalla.getText());
                 switch (signo) {
-<<<<<<< HEAD
-
-=======
                     case "+":
                         resultado = operandoUno + operandoDos;
                         textoRegister.appendText(String.valueOf(resultado));
@@ -166,7 +163,6 @@ public class CalculadoraController implements Initializable {
                         pantalla.setText(String.valueOf(resultado));
                         operandoUno = resultado;
                         break;
->>>>>>> f1d2d09d7a152b5ac2cead8e065f454191114258
                 }
             }
         }
