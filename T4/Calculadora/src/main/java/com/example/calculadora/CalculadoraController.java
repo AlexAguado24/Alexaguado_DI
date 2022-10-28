@@ -38,6 +38,8 @@ public class CalculadoraController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        pantallaGeneral.getChildren().remove(panelSCI);
+        pantallaGeneral.getChildren().remove(panelRegister);
         acciones();
     }
 
