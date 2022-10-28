@@ -20,7 +20,7 @@ public class CalculadoraController implements Initializable {
     @FXML
     private BorderPane pantallaGeneral;
     @FXML
-    private GridPane panelSCI , botonesArit;
+    private GridPane panelSCI, botonesArit;
     @FXML
     private VBox panelRegister;
     @FXML
@@ -28,10 +28,12 @@ public class CalculadoraController implements Initializable {
     @FXML
     private TextArea textoRegister;
     @FXML
-    private Button botonSCI, botonRegister, cerrarSCI, cerrarRegister, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, botonDiv, botonMulti, botonResta, botonSuma, botonIgual,botonBorrar, botonPorcentaje, posneg, cero, coma, e, borrarRegister ;
+    private Button botonSCI, botonRegister, cerrarSCI, cerrarRegister, uno, dos,
+            tres, cuatro, cinco, seis, siete, ocho, nueve, botonDiv, botonMulti,
+            botonResta, botonSuma, botonIgual, botonBorrar, botonPorcentaje,
+            posneg, cero, coma, e, borrarRegister;
     private double operandoUno, operandoDos, resultado;
     private String signo;
-
 
 
     @Override
@@ -47,7 +49,7 @@ public class CalculadoraController implements Initializable {
         borrarRegister.setOnAction(new ManejoBotones());
         for (Node child : botonesArit.getChildren()) {
             if (child instanceof Button) {
-                ((Button)child).setOnAction(new ManejoBotones());
+                ((Button) child).setOnAction(new ManejoBotones());
             }
         }
     }
@@ -63,56 +65,60 @@ public class CalculadoraController implements Initializable {
                 pantallaGeneral.setRight(panelRegister);
             } else if (actionEvent.getSource() == cerrarRegister) {
                 pantallaGeneral.getChildren().remove(panelRegister);
-            } else if (actionEvent.getSource() == uno){
-                pantalla.setText(pantalla.getText()+uno.getText());
+            } else if (actionEvent.getSource() == uno) {
+                pantalla.setText(pantalla.getText() + uno.getText());
             } else if (actionEvent.getSource() == dos) {
-                pantalla.setText(pantalla.getText()+dos.getText());
+                pantalla.setText(pantalla.getText() + dos.getText());
             } else if (actionEvent.getSource() == tres) {
-                pantalla.setText(pantalla.getText()+tres.getText());
+                pantalla.setText(pantalla.getText() + tres.getText());
             } else if (actionEvent.getSource() == cuatro) {
-                pantalla.setText(pantalla.getText()+cuatro.getText());
+                pantalla.setText(pantalla.getText() + cuatro.getText());
             } else if (actionEvent.getSource() == cinco) {
-                pantalla.setText(pantalla.getText()+cinco.getText());
+                pantalla.setText(pantalla.getText() + cinco.getText());
             } else if (actionEvent.getSource() == seis) {
-                pantalla.setText(pantalla.getText()+seis.getText());
+                pantalla.setText(pantalla.getText() + seis.getText());
             } else if (actionEvent.getSource() == siete) {
-                pantalla.setText(pantalla.getText()+siete.getText());
+                pantalla.setText(pantalla.getText() + siete.getText());
             } else if (actionEvent.getSource() == ocho) {
-                pantalla.setText(pantalla.getText()+ocho.getText());
+                pantalla.setText(pantalla.getText() + ocho.getText());
             } else if (actionEvent.getSource() == nueve) {
-                pantalla.setText(pantalla.getText()+nueve.getText());
+                pantalla.setText(pantalla.getText() + nueve.getText());
             } else if (actionEvent.getSource() == cero) {
-                pantalla.setText(pantalla.getText()+cero.getText());
+                pantalla.setText(pantalla.getText() + cero.getText());
             } else if (actionEvent.getSource() == coma) {
-                pantalla.setText(pantalla.getText()+coma.getText());
+                pantalla.setText(pantalla.getText() + coma.getText());
+            } else if (actionEvent.getSource() == e) {
+                pantalla.setText("2.718");
             } else if (actionEvent.getSource() == posneg) {
-                if (Double.parseDouble(pantalla.getText())>0) {
-                    pantalla.setText("-"+pantalla.getText());
-                } else if (Double.parseDouble(pantalla.getText())<0) {
+                if (pantalla.getText().contains("-")) {
+                    String[] texto = pantalla.getText().split("-");
+                    pantalla.setText(texto[1]);
+                } else {
+                    pantalla.setText("-" + pantalla.getText());
                 }
             } else if (actionEvent.getSource() == botonPorcentaje) {
                 signo = "%";
-                textoRegister.appendText(pantalla.getText()+signo);
+                textoRegister.appendText(pantalla.getText() + signo);
                 operandoUno = Double.parseDouble(pantalla.getText());
                 pantalla.setText("");
             } else if (actionEvent.getSource() == botonSuma) {
                 signo = "+";
-                textoRegister.appendText(pantalla.getText()+signo);
+                textoRegister.appendText(pantalla.getText() + signo);
                 operandoUno = Double.parseDouble(pantalla.getText());
                 pantalla.setText("");
             } else if (actionEvent.getSource() == botonResta) {
                 signo = "-";
-                textoRegister.appendText(pantalla.getText()+signo);
+                textoRegister.appendText(pantalla.getText() + signo);
                 operandoUno = Double.parseDouble(pantalla.getText());
                 pantalla.setText("");
             } else if (actionEvent.getSource() == botonDiv) {
                 signo = "/";
-                textoRegister.appendText(pantalla.getText()+signo);
+                textoRegister.appendText(pantalla.getText() + signo);
                 operandoUno = Double.parseDouble(pantalla.getText());
                 pantalla.setText("");
             } else if (actionEvent.getSource() == botonMulti) {
                 signo = "*";
-                textoRegister.appendText(pantalla.getText()+signo);
+                textoRegister.appendText(pantalla.getText() + signo);
                 operandoUno = Double.parseDouble(pantalla.getText());
                 pantalla.setText("");
             } else if (actionEvent.getSource() == botonBorrar) {
@@ -125,7 +131,7 @@ public class CalculadoraController implements Initializable {
             } else if (actionEvent.getSource() == borrarRegister) {
                 textoRegister.clear();
             } else if (actionEvent.getSource() == botonIgual) {
-                textoRegister.appendText(pantalla.getText()+"=");
+                textoRegister.appendText(pantalla.getText() + "=");
                 operandoDos = Double.parseDouble(pantalla.getText());
                 switch (signo) {
                     case "+":
@@ -135,28 +141,28 @@ public class CalculadoraController implements Initializable {
                         pantalla.setText(String.valueOf(resultado));
                         operandoUno = resultado;
                         break;
-                    case"-":
+                    case "-":
                         resultado = operandoUno - operandoDos;
                         textoRegister.appendText(String.valueOf(resultado));
                         textoRegister.appendText("\n");
                         pantalla.setText(String.valueOf(resultado));
                         operandoUno = resultado;
                         break;
-                    case"*":
+                    case "*":
                         resultado = operandoUno * operandoDos;
                         textoRegister.appendText(String.valueOf(resultado));
                         textoRegister.appendText("\n");
                         pantalla.setText(String.valueOf(resultado));
                         operandoUno = resultado;
                         break;
-                    case"/":
+                    case "/":
                         resultado = operandoUno / operandoDos;
                         textoRegister.appendText(String.valueOf(resultado));
                         textoRegister.appendText("\n");
                         pantalla.setText(String.valueOf(resultado));
                         operandoUno = resultado;
                         break;
-                    case"%":
+                    case "%":
                         resultado = operandoUno % operandoDos;
                         textoRegister.appendText(String.valueOf(resultado));
                         textoRegister.appendText("\n");

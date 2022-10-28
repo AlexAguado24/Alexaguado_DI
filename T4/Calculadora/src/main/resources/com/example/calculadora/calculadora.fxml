@@ -84,7 +84,7 @@
             <Button fx:id="botonRaiz" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="sqr" GridPane.rowIndex="3" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="^" GridPane.rowIndex="4" />
             <Button fx:id="botonIn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="In" GridPane.rowIndex="5" />
-            <Button fx:id="botonE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="e" GridPane.rowIndex="6" />
+            <Button fx:id="elevado" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="e" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </left>
