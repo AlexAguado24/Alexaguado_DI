@@ -31,7 +31,7 @@ public class CalculadoraController implements Initializable {
     private Button botonSCI, botonRegister, cerrarSCI, cerrarRegister, uno, dos,
             tres, cuatro, cinco, seis, siete, ocho, nueve, botonDiv, botonMulti,
             botonResta, botonSuma, botonIgual, botonBorrar, botonPorcentaje,
-            posneg, cero, coma, e, borrarRegister;
+            posneg, cero, coma, e, borrarRegister, botonRaiz;
     private double operandoUno, operandoDos, resultado;
     private String signo;
 
@@ -50,6 +50,11 @@ public class CalculadoraController implements Initializable {
         cerrarRegister.setOnAction(new ManejoBotones());
         borrarRegister.setOnAction(new ManejoBotones());
         for (Node child : botonesArit.getChildren()) {
+            if (child instanceof Button) {
+                ((Button) child).setOnAction(new ManejoBotones());
+            }
+        }
+        for (Node child : panelSCI.getChildren()) {
             if (child instanceof Button) {
                 ((Button) child).setOnAction(new ManejoBotones());
             }
@@ -123,6 +128,9 @@ public class CalculadoraController implements Initializable {
                 textoRegister.appendText(pantalla.getText() + signo);
                 operandoUno = Double.parseDouble(pantalla.getText());
                 pantalla.setText("");
+            } else if (actionEvent.getSource() == botonRaiz) {
+                operandoUno = Double.parseDouble(pantalla.getText());
+                pantalla.setText(String.valueOf(Math.sqrt(operandoUno)));
             } else if (actionEvent.getSource() == botonBorrar) {
                 signo = "";
                 pantalla.setText("");
