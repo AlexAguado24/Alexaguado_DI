@@ -114,10 +114,14 @@ public class CalculadoraController implements Initializable {
                 operandoUno = Double.parseDouble(pantalla.getText());
                 pantalla.setText("");
             } else if (actionEvent.getSource() == botonResta) {
-                signo = "-";
-                textoRegister.appendText(pantalla.getText() + signo);
-                operandoUno = Double.parseDouble(pantalla.getText());
-                pantalla.setText("");
+                try {
+                    signo = "-";
+                    textoRegister.appendText(pantalla.getText() + signo);
+                    operandoUno = Double.parseDouble(pantalla.getText());
+                    pantalla.setText("");
+                } catch (NumberFormatException e) {
+                    System.out.println("Debes indicar el operando Uno primero");
+                }
             } else if (actionEvent.getSource() == botonDiv) {
                 signo = "/";
                 textoRegister.appendText(pantalla.getText() + signo);
@@ -130,6 +134,8 @@ public class CalculadoraController implements Initializable {
                 pantalla.setText("");
             } else if (actionEvent.getSource() == botonRaiz) {
                 operandoUno = Double.parseDouble(pantalla.getText());
+                textoRegister.appendText("√"+ pantalla.getText()+"="+String.valueOf(Math.sqrt(operandoUno)));
+                textoRegister.appendText("\n");
                 pantalla.setText(String.valueOf(Math.sqrt(operandoUno)));
             } else if (actionEvent.getSource() == botonBorrar) {
                 signo = "";
