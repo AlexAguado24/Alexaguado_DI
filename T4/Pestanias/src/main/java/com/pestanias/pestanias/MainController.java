@@ -20,7 +20,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -74,6 +81,37 @@ public class MainController implements Initializable {
         asociarDatos();
         configurarBotones();
         acciones();
+        interpretarJSON();
+    }
+
+    private void interpretarJSON() {
+        String urlString = "https://randomuser.me/api/?results=10";
+
+        try {
+            // 1-URL
+            URL url = new URL(urlString);
+            //2-Crear la conexion
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            // 3 - Interpretar los datos --> BufferReader
+            BufferedReader lecturaURL = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String linea = null;
+            String lecturaCompleta = "";
+
+
+            while ((linea = lecturaURL.readLine()) != null) {
+
+            }
+
+            // 4- pasar el String a JSON
+            JSONObject objectoJSON = new JSONObject(lecturaCompleta);
+            JSONArray objectoInfo = objectoJSON.getJSONArray("results");
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+
+        }
     }
 
     private void asociarDatos(){
