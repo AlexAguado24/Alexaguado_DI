@@ -31,7 +31,7 @@ public class CalculadoraController implements Initializable {
     private Button botonSCI, botonRegister, cerrarSCI, cerrarRegister, uno, dos,
             tres, cuatro, cinco, seis, siete, ocho, nueve, botonDiv, botonMulti,
             botonResta, botonSuma, botonIgual, botonBorrar, botonPorcentaje,
-            posneg, cero, coma, e, borrarRegister, botonRaiz;
+            posneg, cero, coma, E, e, borrarRegister, botonRaiz, elevado, botonIn;
     private double operandoUno, operandoDos, resultado;
     private String signo;
 
@@ -94,25 +94,39 @@ public class CalculadoraController implements Initializable {
                 pantalla.setText(pantalla.getText() + cero.getText());
             } else if (actionEvent.getSource() == coma) {
                 pantalla.setText(pantalla.getText() + coma.getText());
+            } else if (actionEvent.getSource() == E) {
+                pantalla.setText("2.718");
             } else if (actionEvent.getSource() == e) {
                 pantalla.setText("2.718");
             } else if (actionEvent.getSource() == posneg) {
-                if (pantalla.getText().contains("-")) {
-                    String[] texto = pantalla.getText().split("-");
-                    pantalla.setText(texto[1]);
-                } else {
-                    pantalla.setText("-" + pantalla.getText());
+                try {
+                    if (pantalla.getText().contains("-")) {
+                        String[] texto = pantalla.getText().split("-");
+                        pantalla.setText(texto[1]);
+                    } else {
+                        pantalla.setText("-" + pantalla.getText());
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Debes indicar algun numero primero");
                 }
             } else if (actionEvent.getSource() == botonPorcentaje) {
-                signo = "%";
-                textoRegister.appendText(pantalla.getText() + signo);
-                operandoUno = Double.parseDouble(pantalla.getText());
-                pantalla.setText("");
+                try {
+                    signo = "%";
+                    textoRegister.appendText(pantalla.getText() + signo);
+                    operandoUno = Double.parseDouble(pantalla.getText());
+                    pantalla.setText("");
+                } catch (NumberFormatException e) {
+                    System.out.println("Debes indicar algun numero primero");
+                }
             } else if (actionEvent.getSource() == botonSuma) {
-                signo = "+";
-                textoRegister.appendText(pantalla.getText() + signo);
-                operandoUno = Double.parseDouble(pantalla.getText());
-                pantalla.setText("");
+                try {
+                    signo = "+";
+                    textoRegister.appendText(pantalla.getText() + signo);
+                    operandoUno = Double.parseDouble(pantalla.getText());
+                    pantalla.setText("");
+                } catch (NumberFormatException e){
+                    System.out.println("Debes indicar algun numero primero");
+                }
             } else if (actionEvent.getSource() == botonResta) {
                 try {
                     signo = "-";
@@ -120,23 +134,53 @@ public class CalculadoraController implements Initializable {
                     operandoUno = Double.parseDouble(pantalla.getText());
                     pantalla.setText("");
                 } catch (NumberFormatException e) {
-                    System.out.println("Debes indicar el operando Uno primero");
+                    System.out.println("Debes indicar algun numero primero");
                 }
             } else if (actionEvent.getSource() == botonDiv) {
-                signo = "/";
-                textoRegister.appendText(pantalla.getText() + signo);
-                operandoUno = Double.parseDouble(pantalla.getText());
-                pantalla.setText("");
+                try {
+                    signo = "/";
+                    textoRegister.appendText(pantalla.getText() + signo);
+                    operandoUno = Double.parseDouble(pantalla.getText());
+                    pantalla.setText("");
+                } catch (NumberFormatException e) {
+                    System.out.println("Debes indicar algun numero primero");
+                }
             } else if (actionEvent.getSource() == botonMulti) {
-                signo = "*";
-                textoRegister.appendText(pantalla.getText() + signo);
-                operandoUno = Double.parseDouble(pantalla.getText());
-                pantalla.setText("");
+                try {
+                    signo = "*";
+                    textoRegister.appendText(pantalla.getText() + signo);
+                    operandoUno = Double.parseDouble(pantalla.getText());
+                    pantalla.setText("");
+                } catch (NumberFormatException e) {
+                    System.out.println("Debes indicar algun numero primero");
+                }
             } else if (actionEvent.getSource() == botonRaiz) {
-                operandoUno = Double.parseDouble(pantalla.getText());
-                textoRegister.appendText("√"+ pantalla.getText()+"="+String.valueOf(Math.sqrt(operandoUno)));
-                textoRegister.appendText("\n");
-                pantalla.setText(String.valueOf(Math.sqrt(operandoUno)));
+                try {
+                    operandoUno = Double.parseDouble(pantalla.getText());
+                    textoRegister.appendText("√" + pantalla.getText() + "=" + String.valueOf(Math.sqrt(operandoUno)));
+                    textoRegister.appendText("\n");
+                    pantalla.setText(String.valueOf(Math.sqrt(operandoUno)));
+                } catch (NumberFormatException e) {
+                    System.out.println("Debes indicar algun numero primero");
+                }
+            } else if (actionEvent.getSource() == elevado) {
+                try {
+                    operandoUno = Double.parseDouble(pantalla.getText());
+                    textoRegister.appendText(pantalla.getText() + "^ =" + String.valueOf(Math.pow(operandoUno, 2)));
+                    textoRegister.appendText("\n");
+                    pantalla.setText(String.valueOf(Math.pow(operandoUno, 2)));
+                }  catch (NumberFormatException e) {
+                    System.out.println("Debes indicar algun numero primero");
+                }
+            } else if (actionEvent.getSource() == botonIn) {
+                try {
+                    operandoUno = Double.parseDouble(pantalla.getText());
+                    textoRegister.appendText(pantalla.getText() + "^ =" + String.valueOf(Math.pow(operandoUno, 2)));
+                    textoRegister.appendText("\n");
+                    pantalla.setText(String.valueOf(Math.pow(operandoUno, 2)));
+                }  catch (NumberFormatException e) {
+                    System.out.println("Debes indicar algun numero primero");
+                }
             } else if (actionEvent.getSource() == botonBorrar) {
                 signo = "";
                 pantalla.setText("");
@@ -147,44 +191,49 @@ public class CalculadoraController implements Initializable {
             } else if (actionEvent.getSource() == borrarRegister) {
                 textoRegister.clear();
             } else if (actionEvent.getSource() == botonIgual) {
-                textoRegister.appendText(pantalla.getText() + "=");
-                operandoDos = Double.parseDouble(pantalla.getText());
-                switch (signo) {
-                    case "+":
-                        resultado = operandoUno + operandoDos;
-                        textoRegister.appendText(String.valueOf(resultado));
-                        textoRegister.appendText("\n");
-                        pantalla.setText(String.valueOf(resultado));
-                        operandoUno = resultado;
-                        break;
-                    case "-":
-                        resultado = operandoUno - operandoDos;
-                        textoRegister.appendText(String.valueOf(resultado));
-                        textoRegister.appendText("\n");
-                        pantalla.setText(String.valueOf(resultado));
-                        operandoUno = resultado;
-                        break;
-                    case "*":
-                        resultado = operandoUno * operandoDos;
-                        textoRegister.appendText(String.valueOf(resultado));
-                        textoRegister.appendText("\n");
-                        pantalla.setText(String.valueOf(resultado));
-                        operandoUno = resultado;
-                        break;
-                    case "/":
-                        resultado = operandoUno / operandoDos;
-                        textoRegister.appendText(String.valueOf(resultado));
-                        textoRegister.appendText("\n");
-                        pantalla.setText(String.valueOf(resultado));
-                        operandoUno = resultado;
-                        break;
-                    case "%":
-                        resultado = operandoUno % operandoDos;
-                        textoRegister.appendText(String.valueOf(resultado));
-                        textoRegister.appendText("\n");
-                        pantalla.setText(String.valueOf(resultado));
-                        operandoUno = resultado;
-                        break;
+                try {
+                    textoRegister.appendText(pantalla.getText() + "=");
+                    operandoDos = Double.parseDouble(pantalla.getText());
+                    switch (signo) {
+                        case "+":
+                            resultado = operandoUno + operandoDos;
+                            textoRegister.appendText(String.valueOf(resultado));
+                            textoRegister.appendText("\n");
+                            pantalla.setText(String.valueOf(resultado));
+                            operandoUno = resultado;
+                            break;
+                        case "-":
+                            resultado = operandoUno - operandoDos;
+                            textoRegister.appendText(String.valueOf(resultado));
+                            textoRegister.appendText("\n");
+                            pantalla.setText(String.valueOf(resultado));
+                            operandoUno = resultado;
+                            break;
+                        case "*":
+                            resultado = operandoUno * operandoDos;
+                            textoRegister.appendText(String.valueOf(resultado));
+                            textoRegister.appendText("\n");
+                            pantalla.setText(String.valueOf(resultado));
+                            operandoUno = resultado;
+                            break;
+                        case "/":
+                            resultado = operandoUno / operandoDos;
+                            textoRegister.appendText(String.valueOf(resultado));
+                            textoRegister.appendText("\n");
+                            pantalla.setText(String.valueOf(resultado));
+                            operandoUno = resultado;
+                            break;
+                        case "%":
+                            resultado = operandoUno % operandoDos;
+                            textoRegister.appendText(String.valueOf(resultado));
+                            textoRegister.appendText("\n");
+                            pantalla.setText(String.valueOf(resultado));
+                            operandoUno = resultado;
+                            break;
+
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Debes indicar algun numero primero");
                 }
             }
         }
