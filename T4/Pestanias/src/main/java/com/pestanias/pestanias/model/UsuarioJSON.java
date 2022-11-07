@@ -16,6 +16,10 @@ public class UsuarioJSON {
         this.phone = phone;
     }
 
+    public void mostrarDatos(){
+
+    }
+
     public String getTitle() {
         return title;
     }

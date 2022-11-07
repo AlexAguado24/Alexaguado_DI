@@ -32,8 +32,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static jdk.javadoc.internal.doclets.formats.html.markup.HtmlStyle.title;
-
 public class MainController implements Initializable {
 
     //elementos gráficos
@@ -87,10 +85,6 @@ public class MainController implements Initializable {
         configurarBotones();
         acciones();
         interpretarJSON();
-    }
-
-    public void mostrarDatos(){
-        System.out.printf("nombre: %s %s %s%n",title, first, last);
     }
 
     private void interpretarJSON() {
@@ -278,7 +272,7 @@ public class MainController implements Initializable {
             public void changed(ObservableValue<? extends UsuarioJSON> observableValue, UsuarioJSON oldUser, UsuarioJSON newUser) {
                 if (oldUser != null) {
                     System.out.println("Antiguo");
-                    oldUser.mostrarDatos;
+                    oldUser.mostrarDatos();
                 }
             }
         });
