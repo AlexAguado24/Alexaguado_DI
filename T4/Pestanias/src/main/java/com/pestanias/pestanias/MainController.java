@@ -388,7 +388,6 @@ public class MainController implements Initializable {
                 // resultados
                 int numeroResultados = spinnerCantidad.getValue();
                 //genero
-                RadioButton botonGenero = 
             }
         }
     }
