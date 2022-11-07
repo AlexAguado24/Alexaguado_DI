@@ -17,7 +17,10 @@ public class UsuarioJSON {
     }
 
     public void mostrarDatos(){
-
+        System.out.printf("Nombre: %s %s %s%n",title,first,last);
+        System.out.printf("Email: %s %n",email);
+        System.out.printf("Phone: %s %n",phone);
+        System.out.printf("Image: %s %n",image);
     }
 
     public String getTitle() {

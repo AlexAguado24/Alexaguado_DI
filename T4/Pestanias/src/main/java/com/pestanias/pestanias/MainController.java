@@ -42,13 +42,13 @@ public class MainController implements Initializable {
     @FXML
     private ToggleButton botonToggle;
     @FXML
-    private RadioButton radio1, radio2, radio3;
+    private RadioButton radio1, radio2, radio3, radioTodos, radioMasculino, radioFemenino;
     @FXML
     private Label labelNombre, labelDesc, labelComision;
     @FXML
     private TextField textFiledUno, textFiledDos;
     @FXML
-    private Button botonSuma,botonResta, botonMulti, botonDiv, botonIgual,botonMostrar, botonOcultar, botonComprobar;
+    private Button botonSuma,botonResta, botonMulti, botonDiv, botonIgual,botonMostrar, botonOcultar, botonComprobar, botonFiltrar;
     @FXML
     private GridPane gridBotones;
     @FXML
@@ -64,14 +64,16 @@ public class MainController implements Initializable {
     @FXML
     private Spinner<String> spinner;
     @FXML
+    private Spinner<Integer>spinnerCantidad;
+    @FXML
     private ListView<String> list;
     @FXML
     private ListView<UsuarioJSON> listUsuarios;
     private ObservableList<UsuarioJSON> listaUsuariosJSON;
     private ObservableList<String> listaChoice, listaCombo, listaSpinner, listaListView;
+    private ObservableList<Integer> listaSpinnerCantidad;
     private ObservableList<Usuario> listaUsuarios;
-
-    private ToggleGroup grupoRadios;
+    private ToggleGroup grupoRadios, grupoGenero;
     private DropShadow sombraExterior;
     private int tipoOperacion = -1;
 
@@ -88,7 +90,7 @@ public class MainController implements Initializable {
     }
 
     private void interpretarJSON() {
-        String urlString = "https://randomuser.me/api/?results=10";
+        String urlString = "https://randomuser.me/api/?"+grupoGenero.getSelectedToggle()+spinnerCantidad;
 
         try {
             // 1-URL
@@ -132,13 +134,14 @@ public class MainController implements Initializable {
         radio1.setUserData(new TipoDePago("Tarjeta","Pago con tarjeta bancaria",0));
         radio2.setUserData(new TipoDePago("Transferencia","Pago con tarjeta bancaria",10));
         radio3.setUserData(new TipoDePago("PayPal","Pago con Paypal",20));
-
         combo.setItems(listaCombo);
         choice.setItems(listaChoice);
         comboUsuario.setItems(listaUsuarios);
         spinner.setValueFactory(new SpinnerValueFactory.ListSpinnerValueFactory<String>(listaSpinner));
         list.setItems(listaListView);
         listUsuarios.setItems(listaUsuariosJSON);
+        spinnerCantidad.setValueFactory(new SpinnerValueFactory.ListSpinnerValueFactory<>(listaSpinnerCantidad));
+        //spinnerCantidad.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100,5,5)); (otra forma de rellenar el spinner)
     }
 
     private void configurarBotones(){
@@ -162,7 +165,9 @@ public class MainController implements Initializable {
     private void instancias(){
         sombraExterior = new DropShadow();
         grupoRadios = new ToggleGroup();
+        grupoGenero = new ToggleGroup();
         grupoRadios.getToggles().addAll(radio1,radio2,radio3);
+        grupoGenero.getToggles().addAll(radioTodos,radioMasculino,radioFemenino);
 
         listaChoice = FXCollections.observableArrayList();
         listaChoice.addAll("OpcionCH 1","OpcionCH 2","OpcionCH 3","OpcionCH 4","OpcionCH 5");
@@ -170,7 +175,10 @@ public class MainController implements Initializable {
         listaCombo.addAll("OpcionCB 1","OpcionCB 2","OpcionCB 3","OpcionCB 4","OpcionCB 5");
         listaSpinner = FXCollections.observableArrayList();
         listaSpinner.addAll("OpcionSP 1","OpcionSP 2", "OpcionSP 3", "OpcionSP 4", "OpcionSP 5");
-
+        listaSpinnerCantidad = FXCollections.observableArrayList();
+        for (int i = 0; i < 101; i++) {
+            listaSpinnerCantidad.add(i);
+        }
         listaUsuarios = FXCollections.observableArrayList();
         listaUsuarios.addAll(
                 new Usuario(1,"Paco","Martinez", "pacoinalaysequedaduro@gmail.com"),
@@ -274,6 +282,8 @@ public class MainController implements Initializable {
                     System.out.println("Antiguo");
                     oldUser.mostrarDatos();
                 }
+                System.out.printf("Nuevo");
+                newUser.mostrarDatos();
             }
         });
     }
@@ -374,6 +384,11 @@ public class MainController implements Initializable {
                 } else {
                     System.out.println("Uno de los dos elementos no tiene seleccion");
                 }
+            } else if (actionEvent.getSource() == botonFiltrar) {
+                // resultados
+                int numeroResultados = spinnerCantidad.getValue();
+                //genero
+                RadioButton botonGenero = 
             }
         }
     }
