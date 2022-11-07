@@ -2,6 +2,7 @@ package com.pestanias.pestanias;
 
 import com.pestanias.pestanias.model.TipoDePago;
 import com.pestanias.pestanias.model.Usuario;
+import com.pestanias.pestanias.model.UsuarioJSON;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -30,6 +31,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static jdk.javadoc.internal.doclets.formats.html.markup.HtmlStyle.title;
 
 public class MainController implements Initializable {
 
@@ -64,7 +67,9 @@ public class MainController implements Initializable {
     private Spinner<String> spinner;
     @FXML
     private ListView<String> list;
-
+    @FXML
+    private ListView<UsuarioJSON> listUsuarios;
+    private ObservableList<UsuarioJSON> listaUsuariosJSON;
     private ObservableList<String> listaChoice, listaCombo, listaSpinner, listaListView;
     private ObservableList<Usuario> listaUsuarios;
 
@@ -84,6 +89,10 @@ public class MainController implements Initializable {
         interpretarJSON();
     }
 
+    public void mostrarDatos(){
+        System.out.printf("nombre: %s %s %s%n",title, first, last);
+    }
+
     private void interpretarJSON() {
         String urlString = "https://randomuser.me/api/?results=10";
 
@@ -99,12 +108,23 @@ public class MainController implements Initializable {
 
 
             while ((linea = lecturaURL.readLine()) != null) {
-
+                lecturaCompleta+=linea;
             }
 
             // 4- pasar el String a JSON
             JSONObject objectoJSON = new JSONObject(lecturaCompleta);
-            JSONArray objectoInfo = objectoJSON.getJSONArray("results");
+            JSONArray arrayResults = objectoJSON.getJSONArray("results");
+            for (int i = 0; i < arrayResults.length(); i++) {
+                JSONObject item = arrayResults.getJSONObject(i);
+                String title = item.getJSONObject("name").getString("title");
+                String first = item.getJSONObject("name").getString("first");
+                String last = item.getJSONObject("name").getString("last");
+                String urlImage = item.getJSONObject("picture").getString("large");
+                String email = item.getString("email");
+                String phone = item.getString("phone");
+                //System.out.printf("%s %s %s - %s%n", title, first, last, urlImage);
+                listaUsuariosJSON.add(new UsuarioJSON(title,first,last,urlImage,email,phone));
+            }
 
 
         } catch (IOException e) {
@@ -124,6 +144,7 @@ public class MainController implements Initializable {
         comboUsuario.setItems(listaUsuarios);
         spinner.setValueFactory(new SpinnerValueFactory.ListSpinnerValueFactory<String>(listaSpinner));
         list.setItems(listaListView);
+        listUsuarios.setItems(listaUsuariosJSON);
     }
 
     private void configurarBotones(){
@@ -166,6 +187,7 @@ public class MainController implements Initializable {
         );
         listaListView = FXCollections.observableArrayList();
         listaListView.addAll("Opcion1","Opcion2","Opcion3","Opcion4","Opcion5","Opcion6","Opcion7","Opcion8");
+        listaUsuariosJSON = FXCollections.observableArrayList();
     }
 
     private void acciones(){
@@ -251,6 +273,15 @@ public class MainController implements Initializable {
                 System.out.println("Cambio en la lista, valor nuevo " + t1);
             }
         });
+        listUsuarios.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<UsuarioJSON>() {
+            @Override
+            public void changed(ObservableValue<? extends UsuarioJSON> observableValue, UsuarioJSON oldUser, UsuarioJSON newUser) {
+                if (oldUser != null) {
+                    System.out.println("Antiguo");
+                    oldUser.mostrarDatos;
+                }
+            }
+        });
     }
 
     class ManejoRaton implements EventHandler<MouseEvent>{
@@ -334,7 +365,6 @@ public class MainController implements Initializable {
                 panelGeneral.getChildren().remove(panelMostrar);
             } else if (actionEvent.getSource() == botonComprobar) {
                 // seleccion de una lista
-
                 String seleccionCombo = combo.getSelectionModel().getSelectedItem();
                 String seleccionChoice = choice.getSelectionModel().getSelectedItem();
                 String seleccionLista = list.getSelectionModel().getSelectedItem();
@@ -342,12 +372,8 @@ public class MainController implements Initializable {
                 System.out.println(seleccionLista);
                 System.out.println(choice.getSelectionModel().getSelectedItem());
                 String seleccionSpinner = spinner.getValue();
-
                 System.out.println(combo.getSelectionModel().getSelectedIndex());
-
                 System.out.println(seleccionSpinner);
-
-
                 if (combo.getSelectionModel().getSelectedIndex() >-1 && choice.getSelectionModel().getSelectedIndex()>-1){
                     System.out.printf("Seleccion de combo %s%n",seleccionCombo);
                     System.out.printf("Seleccion de choice %s%n",seleccionChoice);
@@ -355,7 +381,6 @@ public class MainController implements Initializable {
                     System.out.println("Uno de los dos elementos no tiene seleccion");
                 }
             }
-
         }
     }
 }
