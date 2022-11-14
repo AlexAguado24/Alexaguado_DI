@@ -5,11 +5,16 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,11 +22,12 @@ public class HelloController implements Initializable {
 
     @FXML
     private MenuItem menuSalir, menuComunicarEspecifico, menuComunicarDefecto, menuEscena;
-
     @FXML
     private RadioMenuItem menuDesactivado, menuActivado;
     @FXML
     private GridPane gridCentral;
+    @FXML
+    private Label testoLabel;
 
     private ToggleGroup grupoRadios;
     private ContextMenu menuContextual;
@@ -66,6 +72,9 @@ public class HelloController implements Initializable {
         });
         gridCentral.setOnMouseClicked(new ManejoRaton());
     }
+    public void setTexto(String texto){
+        testoLabel.setText(texto);
+    }
 
     class ManejoPulsaciones implements EventHandler<ActionEvent> {
         @Override
@@ -73,7 +82,27 @@ public class HelloController implements Initializable {
             if (actionEvent.getSource() == menuSalir) {
                 System.exit(0);
             } else if (actionEvent.getSource() == menuComunicarDefecto) {
-
+                System.out.println("Comunicando por defecto");
+                //Para abrir otra escena:
+                //1-- tener una ventana
+                Stage ventana = new Stage();
+                //2-- parte grafica
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("second-view.fxml"));
+                try {
+                    Parent root = fxmlLoader.load();
+                    //3-- tener una escena
+                    Scene escena = new Scene(root,400, 400);
+                    //4-- unir scenen y stage
+                    ventana.setScene(escena);
+                    SecondController controller = fxmlLoader.getController();
+                    controller.recepcionarTexto("Texto pasar por defecto");
+                    controller.setController(HelloController.this);
+                    //5-- hacer visible la ventana
+                    ventana.setTitle("ventana secundaria");
+                    ventana.show();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             } else if (actionEvent.getSource() == menuComunicarEspecifico) {
 
             } else if (actionEvent.getSource() == menuEscena) {
