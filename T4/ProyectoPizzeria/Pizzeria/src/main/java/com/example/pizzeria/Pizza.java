@@ -9,9 +9,9 @@ public class Pizza {
     private String tamanio;
     private double precio;
 
-    public Pizza(String nombre) {
+    public Pizza(String nombre, ArrayList<Ingrediente> ingredientes) {
         this.nombre = nombre;
-
+        this.ingredientes = new ArrayList<>();
     }
 
     public Pizza(String nombre, ArrayList<Ingrediente> ingredientes, String tamanio, double precio) {
@@ -19,6 +19,15 @@ public class Pizza {
         this.ingredientes = new ArrayList<>();
         this.tamanio = tamanio;
         this.precio = precio;
+    }
+
+    public void mostrarDatos() {
+        System.out.println("Pizza: " + nombre);
+        for (Ingrediente item : ingredientes) {
+            System.out.println(item);
+        }
+        System.out.println("Tamaño: " + tamanio);
+        System.out.println("Precio: " + precio);
     }
 
     public String getNombre() {
@@ -55,6 +64,6 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return  nombre ;
+        return nombre;
     }
 }

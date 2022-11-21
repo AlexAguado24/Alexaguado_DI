@@ -18,12 +18,7 @@ public class Pedido {
         System.out.println("ID: " + id);
         System.out.println("Nombre: " + nombre);
         System.out.println("Telefono: " + telefono);
-        int contador = 1;
-        for (Ingrediente item : pizza.getIngredientes()) {
-            System.out.printf("Ingrediente %d: %s%n",contador, item);
-            contador++;
-        }
-
+        pizza.mostrarDatos();
     }
 
     public int getId() {
