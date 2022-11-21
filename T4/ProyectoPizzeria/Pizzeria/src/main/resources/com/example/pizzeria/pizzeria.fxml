@@ -54,7 +54,7 @@
                <children>
                   <RadioButton fx:id="radioFamiliar" mnemonicParsing="false" text="Familiar" />
                   <RadioButton fx:id="radioMediana" mnemonicParsing="false" text="Mediana" />
-                  <RadioButton fx:id="radioPequeña" mnemonicParsing="false" text="Pequeña">
+                  <RadioButton fx:id="radioPequenia" mnemonicParsing="false" text="Pequeña">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -68,7 +68,7 @@
                </GridPane.margin>
             </HBox>
             <Button fx:id="botonRealizarPedido" mnemonicParsing="false" text="Realizar Pedido" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <ListView fx:id="listaPedidos" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="5">
+            <ListView fx:id="listaPedidos" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="5">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
