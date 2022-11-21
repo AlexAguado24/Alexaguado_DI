@@ -8,6 +8,10 @@ public class Ingrediente {
         this.nombre = nombre;
     }
 
+    public void mostrarDatos(){
+        System.out.println("Ingrediente: "+nombre);
+    }
+
     public String getNombre() {
         return nombre;
     }

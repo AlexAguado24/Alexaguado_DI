@@ -55,8 +55,10 @@ public class HelloController implements Initializable {
         asociarDatos();
         acciones();
     }
+
     private void acciones() {
         botonRealizarPedido.setOnAction(new ManejoPulsaciones());
+        //Añade escuchadores a la seleccion del comboBox y el grupo de radios y configura el precio y tamaño de las pizzas
         grupoTamanios.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observableValue, Toggle toggle, Toggle t1) {
@@ -84,7 +86,7 @@ public class HelloController implements Initializable {
                         comboPizzas.getSelectionModel().getSelectedItem().setTamanio("familiar");
                         comboPizzas.getSelectionModel().getSelectedItem().setPrecio(13);
                     }
-                } else if (comboPizzas.getSelectionModel().getSelectedItem().getNombre().equalsIgnoreCase("jamon y queso")){
+                } else if (comboPizzas.getSelectionModel().getSelectedItem().getNombre().equalsIgnoreCase("jamon y queso")) {
                     if (tipo.equalsIgnoreCase("pequeña")) {
                         comboPizzas.getSelectionModel().getSelectedItem().setTamanio("pequeña");
                         comboPizzas.getSelectionModel().getSelectedItem().setPrecio(4);
@@ -95,7 +97,7 @@ public class HelloController implements Initializable {
                         comboPizzas.getSelectionModel().getSelectedItem().setTamanio("familiar");
                         comboPizzas.getSelectionModel().getSelectedItem().setPrecio(10);
                     }
-                }else if (comboPizzas.getSelectionModel().getSelectedItem().getNombre().equalsIgnoreCase("Cuatro quesos")){
+                } else if (comboPizzas.getSelectionModel().getSelectedItem().getNombre().equalsIgnoreCase("Cuatro quesos")) {
                     if (tipo.equalsIgnoreCase("pequeña")) {
                         comboPizzas.getSelectionModel().getSelectedItem().setTamanio("pequeña");
                         comboPizzas.getSelectionModel().getSelectedItem().setPrecio(8);
@@ -123,8 +125,10 @@ public class HelloController implements Initializable {
     }
 
     private void instancias() {
+        // añade los radioButtons en el grupo
         grupoTamanios = new ToggleGroup();
         grupoTamanios.getToggles().addAll(radioFamiliar, radioMediana, radioPequenia);
+        //Inicializa la lista de pizzas y la rellena
         listaPizzas = FXCollections.observableArrayList();
         bbq.add(bacon);
         bbq.add(salsaBbq);
@@ -148,10 +152,11 @@ public class HelloController implements Initializable {
         );
         listListaPedidos = FXCollections.observableArrayList();
     }
-    class ManejoPulsaciones implements EventHandler<ActionEvent>{
+
+    class ManejoPulsaciones implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-
+            // da funcionalidad al boton de añadir pedido
             if (actionEvent.getSource() == botonRealizarPedido) {
                 if (textNombre.getText().isEmpty()) {
                     System.out.println("Debes indicar el nombre");
@@ -162,12 +167,13 @@ public class HelloController implements Initializable {
                 } else if (grupoTamanios.getSelectedToggle() == null) {
                     System.out.println("Indica un tamaño para la pizza");
                 } else {
-                listListaPedidos.add(new Pedido(idPedido,textNombre.getText(),Integer.parseInt(textTelefono.getText())
-                            ,comboPizzas.getSelectionModel().getSelectedItem()));
+                    listListaPedidos.add(new Pedido(idPedido, textNombre.getText(), Integer.parseInt(textTelefono.getText())
+                            , comboPizzas.getSelectionModel().getSelectedItem()));
                     idPedido++;
-                    textNombre.setText("");
-                    textTelefono.setText("");
-                    grupoTamanios.selectToggle(null);
+                    textNombre.clear();
+                    textTelefono.clear();
+                    grupoTamanios.getToggles().clear();
+                    //comboPizzas.set
                 }
             }
         }

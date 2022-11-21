@@ -24,7 +24,7 @@ public class Pizza {
     public void mostrarDatos() {
         System.out.println("Pizza: " + nombre);
         for (Ingrediente item : ingredientes) {
-            System.out.println(item);
+            item.mostrarDatos();
         }
         System.out.println("Tamaño: " + tamanio);
         System.out.println("Precio: " + precio);
