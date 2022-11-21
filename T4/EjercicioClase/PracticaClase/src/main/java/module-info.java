@@ -13,4 +13,6 @@ module com.example.practicaclase {
 
     opens com.example.practicaclase to javafx.fxml;
     exports com.example.practicaclase;
+    exports com.example.practicaclase.model;
+    opens com.example.practicaclase.model to javafx.fxml;
 }
