@@ -7,29 +7,30 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<BorderPane fx:controller="com.example.practicaclase.HelloController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.practicaclase.HelloController">
    <top>
       <MenuBar accessibleRole="MENU_ITEM" nodeOrientation="LEFT_TO_RIGHT" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Add Alumno">
+          <Menu mnemonicParsing="false" text="Acciones">
             <items>
-              <MenuItem fx:id="menuAniadir" mnemonicParsing="false" text="Añadir" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Ver Detalle">
-            <items>
-              <MenuItem fx:id="menuDetalles" mnemonicParsing="false" text="Detalles" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="EliminarAlumno">
-            <items>
-                  <MenuItem fx:id="menuEliminar" mnemonicParsing="false" text="Eliminar" />
+              <MenuItem fx:id="menuAniadir" mnemonicParsing="false" text="ADD Alumno">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+              <MenuItem fx:id="menuDetalles" mnemonicParsing="false" text="Ver Detalles">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="D" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem fx:id="menuEliminar" mnemonicParsing="false" text="Eliminar Alumno">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
             </items>
           </Menu>
         </menus>
