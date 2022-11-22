@@ -11,12 +11,12 @@ public class Pizza {
 
     public Pizza(String nombre, ArrayList<Ingrediente> ingredientes) {
         this.nombre = nombre;
-        this.ingredientes = new ArrayList<>();
+        this.ingredientes = ingredientes;
     }
 
     public Pizza(String nombre, ArrayList<Ingrediente> ingredientes, String tamanio, double precio) {
         this.nombre = nombre;
-        this.ingredientes = new ArrayList<>();
+        this.ingredientes = ingredientes;
         this.tamanio = tamanio;
         this.precio = precio;
     }

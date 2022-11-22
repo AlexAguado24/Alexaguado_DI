@@ -39,7 +39,7 @@ public class HelloController implements Initializable {
     private Ingrediente salsaBbq = new Ingrediente("salsaBbq");
     private Ingrediente maiz = new Ingrediente("maiz");
     private Ingrediente cebolla = new Ingrediente("cebolla");
-    private Ingrediente carne = new Ingrediente("cebolla");
+    private Ingrediente carne = new Ingrediente("carne");
     private Ingrediente pinia = new Ingrediente("piña");
     private Ingrediente jamon = new Ingrediente("jamon");
     private Ingrediente salsa = new Ingrediente("salsa");
@@ -175,7 +175,7 @@ public class HelloController implements Initializable {
                     radioFamiliar.setSelected(false);
                     radioMediana.setSelected(false);
                     radioPequenia.setSelected(false);
-                    comboPizzas.getItems();
+                    /*comboPizzas.getItems();*/
                 }
             }
         }
