@@ -172,8 +172,10 @@ public class HelloController implements Initializable {
                     idPedido++;
                     textNombre.clear();
                     textTelefono.clear();
-                    grupoTamanios.getToggles().clear();
-                    //comboPizzas.set
+                    radioFamiliar.setSelected(false);
+                    radioMediana.setSelected(false);
+                    radioPequenia.setSelected(false);
+                    comboPizzas.getItems();
                 }
             }
         }
