@@ -48,7 +48,8 @@ public class MainController implements Initializable {
     @FXML
     private TextField textFiledUno, textFiledDos;
     @FXML
-    private Button botonSuma,botonResta, botonMulti, botonDiv, botonIgual,botonMostrar, botonOcultar, botonComprobar, botonFiltrar;
+    private Button botonSuma,botonResta, botonMulti, botonDiv, botonIgual
+            ,botonMostrar, botonOcultar, botonComprobar, botonFiltrar;
     @FXML
     private GridPane gridBotones;
     @FXML

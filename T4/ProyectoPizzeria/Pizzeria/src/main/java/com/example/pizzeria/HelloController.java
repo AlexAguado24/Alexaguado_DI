@@ -163,7 +163,7 @@ public class HelloController implements Initializable {
                 } else if (textTelefono.getText().isEmpty()) {
                     System.out.println("Debes indicar el numero de telefono");
                 } else if (comboPizzas.getSelectionModel().isEmpty()) {
-                    System.out.println("Indica el tipo de pizzaa que quieres");
+                    System.out.println("Indica el tipo de pizza que quieres");
                 } else if (grupoTamanios.getSelectedToggle() == null) {
                     System.out.println("Indica un tamaño para la pizza");
                 } else {
