@@ -31,7 +31,7 @@ public class CalculadoraController implements Initializable {
     private Button botonSCI, botonRegister, cerrarSCI, cerrarRegister, uno, dos,
             tres, cuatro, cinco, seis, siete, ocho, nueve, botonDiv, botonMulti,
             botonResta, botonSuma, botonIgual, botonBorrar, botonPorcentaje,
-            posneg, cero, coma, E, e, borrarRegister, botonRaiz, elevado, botonIn;
+            posneg, cero, coma, E, e, borrarRegister, botonRaiz, elevado, botonIn, equisExcla;
     private double operandoUno, operandoDos, resultado;
     private String signo;
 
@@ -98,7 +98,17 @@ public class CalculadoraController implements Initializable {
                 pantalla.setText("2.718");
             } else if (actionEvent.getSource() == e) {
                 pantalla.setText("2.718");
-            } else if (actionEvent.getSource() == posneg) {
+            } else if (actionEvent.getSource() == equisExcla) {
+                operandoUno = Double.parseDouble(pantalla.getText());
+                textoRegister.appendText("X!"+operandoUno+"=");
+                double total = 0.0;
+                for (int i = (int) operandoUno-1; i > 0 ; i--) {
+                    operandoUno = operandoUno*i;
+                }
+                total = operandoUno;
+                textoRegister.appendText(String.valueOf(total+"\n"));
+                pantalla.setText(String.valueOf(operandoUno));
+            }else if (actionEvent.getSource() == posneg) {
                 try {
                     if (pantalla.getText().contains("-")) {
                         String[] texto = pantalla.getText().split("-");
