@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -41,6 +42,7 @@ public class ListaController implements Initializable {
     private void acciones() {
         botonCombo.setOnAction(new ManejoBotones());
         botonSpinner.setOnAction(new ManejoBotones());
+        botonVolver.setOnAction(new ManejoBotones());
     }
 
     private void asociarDatos() {
@@ -88,14 +90,19 @@ public class ListaController implements Initializable {
         @Override
         public void handle(ActionEvent actionEvent) {
             if (actionEvent.getSource() == botonCombo) {
+                //añadiendo el cocktail del combobox
                 if (comboCocktails.getSelectionModel().isEmpty()) {
                     System.out.println("Indica el tipo de cocktail que quieres");
                 } else {
                     listaCocktails.add(comboCocktails.getSelectionModel().getSelectedItem());
                 }
-            }
-            if (actionEvent.getSource() == botonSpinner) {
+            } else if (actionEvent.getSource() == botonSpinner) {
+                //Añade el cocktail que hay seleccionado en el spinner
                 listaCocktails.add(spinnerCocktais.getValue());
+            } else if (actionEvent.getSource() == botonVolver) {
+                // cerrando la ventana
+                Stage ventanaNueva = (Stage) botonVolver.getScene().getWindow();
+                ventanaNueva.close();
             }
         }
     }

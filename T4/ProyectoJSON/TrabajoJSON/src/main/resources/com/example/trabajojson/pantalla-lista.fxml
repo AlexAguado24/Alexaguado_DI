@@ -27,7 +27,7 @@
       </ListView>
       <Button fx:id="botonVolver" mnemonicParsing="false" text="Volver" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
       <Spinner fx:id="spinnerCocktais" GridPane.halignment="CENTER" />
-      <ComboBox fx:id="comboCocktails" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <ComboBox fx:id="comboCocktails" prefWidth="150.0" promptText="Selecciona un Cocktail" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
       <Button fx:id="botonCombo" mnemonicParsing="false" text="Añadir Combo" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets right="40.0" />
