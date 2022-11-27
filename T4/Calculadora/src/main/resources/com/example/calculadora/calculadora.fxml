@@ -79,7 +79,7 @@
         </rowConstraints>
          <children>
             <Button fx:id="cerrarSCI" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #FFDB58;" text="&gt;&gt;" />
-            <Button fx:id="botonSin" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="sin" GridPane.rowIndex="1" />
+            <Button fx:id="botonPi" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="π" GridPane.rowIndex="1" />
             <Button fx:id="equisExcla" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="x!" GridPane.rowIndex="2" />
             <Button fx:id="botonRaiz" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="sqr" GridPane.rowIndex="3" />
             <Button fx:id="elevado" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="^" GridPane.rowIndex="4" />

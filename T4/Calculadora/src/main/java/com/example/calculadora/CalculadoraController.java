@@ -31,7 +31,7 @@ public class CalculadoraController implements Initializable {
     private Button botonSCI, botonRegister, cerrarSCI, cerrarRegister, uno, dos,
             tres, cuatro, cinco, seis, siete, ocho, nueve, botonDiv, botonMulti,
             botonResta, botonSuma, botonIgual, botonBorrar, botonPorcentaje,
-            posneg, cero, coma, E, e, borrarRegister, botonRaiz, elevado, botonIn, equisExcla;
+            posneg, cero, coma, E, e, borrarRegister, botonRaiz, elevado, botonIn, equisExcla, botonPi;
     private double operandoUno, operandoDos, resultado;
     private String signo;
 
@@ -98,6 +98,8 @@ public class CalculadoraController implements Initializable {
                 pantalla.setText("2.718");
             } else if (actionEvent.getSource() == e) {
                 pantalla.setText("2.718");
+            }else if (actionEvent.getSource() == botonPi) {
+                pantalla.setText(String.format("%.5f",Math.PI));
             } else if (actionEvent.getSource() == equisExcla) {
                 operandoUno = Double.parseDouble(pantalla.getText());
                 textoRegister.appendText("X!"+operandoUno+"=");
