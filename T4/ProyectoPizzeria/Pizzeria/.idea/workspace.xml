@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0122981d-5dd6-4a0f-80dd-49a4bd84264e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/java/com/example/trabajojson/Cocktail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Pestanias/src/main/java/com/pestanias/pestanias/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Pestanias/src/main/java/com/pestanias/pestanias/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/java/com/example/trabajojson/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/java/com/example/trabajojson/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/java/com/example/trabajojson/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/java/com/example/trabajojson/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/java/com/example/trabajojson/ListaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/java/com/example/trabajojson/ListaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/java/com/example/trabajojson/model/Digimon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/resources/com/example/trabajojson/json-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/resources/com/example/trabajojson/json-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/resources/com/example/trabajojson/pantalla-lista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/resources/com/example/trabajojson/pantalla-lista.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Calculadora/src/main/java/com/example/calculadora/CalculadoraController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Calculadora/src/main/java/com/example/calculadora/CalculadoraController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pizzeria/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pizzeria/HelloController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +41,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Usuario/Desktop/DAM/Segundo_2/Alexaguado_DI/T4/Pestanias"
+    "last_opened_file_path": "C:/Users/Usuario/Desktop/DAM/Segundo_2/Alexaguado_DI/T4/ProyectoPizzeria/Pizzeria"
   }
 }]]></component>
   <component name="RunManager">

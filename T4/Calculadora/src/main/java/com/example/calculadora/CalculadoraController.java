@@ -99,7 +99,10 @@ public class CalculadoraController implements Initializable {
             } else if (actionEvent.getSource() == e) {
                 pantalla.setText("2.718");
             }else if (actionEvent.getSource() == botonPi) {
+                textoRegister.setText(String.format("%.5f",Math.PI));
                 pantalla.setText(String.format("%.5f",Math.PI));
+                /*operandoUno = Math.PI;
+                pantalla.setText(String.valueOf(operandoUno));*/
             } else if (actionEvent.getSource() == equisExcla) {
                 operandoUno = Double.parseDouble(pantalla.getText());
                 textoRegister.appendText("X!"+operandoUno+"=");
@@ -187,9 +190,9 @@ public class CalculadoraController implements Initializable {
             } else if (actionEvent.getSource() == botonIn) {
                 try {
                     operandoUno = Double.parseDouble(pantalla.getText());
-                    textoRegister.appendText("log("+pantalla.getText()+String.valueOf(Math.log(operandoUno))+")");
-                    textoRegister.appendText("\n");
-                    pantalla.setText(String.valueOf(Math.log(operandoUno)));
+                    textoRegister.appendText("log("+pantalla.getText()+")="+String.valueOf(String.format("%.4f",Math.log(operandoUno)))+"\n");
+                    //operandoUno = Math.log(operandoUno);
+                    pantalla.setText("");
                 }  catch (NumberFormatException e) {
                     System.out.println("Debes indicar algun numero primero");
                 }
