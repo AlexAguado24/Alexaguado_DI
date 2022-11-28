@@ -28,7 +28,6 @@ public class ListaController implements Initializable {
     private Spinner spinnerCocktais;
     @FXML
     private ComboBox comboCocktails;
-
     private ObservableList listaCombo, listaSpinner, listaCocktails;
 
 

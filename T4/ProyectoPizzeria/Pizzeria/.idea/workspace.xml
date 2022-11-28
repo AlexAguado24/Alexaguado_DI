@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0122981d-5dd6-4a0f-80dd-49a4bd84264e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Calculadora/src/main/java/com/example/calculadora/CalculadoraController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Calculadora/src/main/java/com/example/calculadora/CalculadoraController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ProyectoJSON/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ProyectoJSON/.idea/ProyectoJSON.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ProyectoJSON/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ProyectoJSON/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ProyectoJSON/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/java/com/example/practicaclase/DetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/java/com/example/practicaclase/DetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/java/com/example/practicaclase/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/java/com/example/practicaclase/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/java/com/example/practicaclase/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/java/com/example/practicaclase/Alumno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/resources/com/example/practicaclase/aniadir-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/resources/com/example/practicaclase/aniadir-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/resources/com/example/practicaclase/detail-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/resources/com/example/practicaclase/detail-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/resources/com/example/practicaclase/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/resources/com/example/practicaclase/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/java/com/example/trabajojson/ListaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/java/com/example/trabajojson/ListaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +52,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Usuario/Desktop/DAM/Segundo_2/Alexaguado_DI/T4/ProyectoPizzeria/Pizzeria"
+    "last_opened_file_path": "C:/Users/Usuario/Desktop/DAM/Segundo_2/Alexaguado_DI/T4/ProyectoJSON/TrabajoJSON",
+    "settings.editor.selected.configurable": "preferences.JavaFX"
   }
 }]]></component>
   <component name="RunManager">
@@ -88,5 +100,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
