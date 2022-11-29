@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane fx:controller="com.example.jose_alejandro_aguado_merino.AccederController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Vista">
+            <items>
+              <MenuItem fx:id="menuGuest" mnemonicParsing="false" text="Guest" />
+                  <MenuItem fx:id="menuUser" mnemonicParsing="false" text="User" />
+                  <MenuItem fx:id="menuDev" mnemonicParsing="false" text="Developer" />
+                  <MenuItem fx:id="menuTest" mnemonicParsing="false" text="Test" />
+                  <MenuItem fx:id="menuAll" mnemonicParsing="false" text="All" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <TableView fx:id="tabla" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="columNombre" prefWidth="75.0" text="Nombre" />
+          <TableColumn fx:id="columCorreo" prefWidth="75.0" text="Correo" />
+            <TableColumn fx:id="columRoll" prefWidth="75.0" text="Roll" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </center>
+</BorderPane>
