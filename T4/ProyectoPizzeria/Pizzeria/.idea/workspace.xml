@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0122981d-5dd6-4a0f-80dd-49a4bd84264e" name="Changes" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/../../ProyectoJSON/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../ProyectoJSON/.idea/ProyectoJSON.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../ProyectoJSON/.idea/modules.xml" afterDir="false" />
@@ -18,6 +19,11 @@
       <change beforePath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/resources/com/example/practicaclase/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../EjercicioClase/PracticaClase/src/main/resources/com/example/practicaclase/hello-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/java/com/example/trabajojson/ListaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProyectoJSON/TrabajoJSON/src/main/java/com/example/trabajojson/ListaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/../../Jose_Alejandro_Aguado_Merino/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Jose_Alejandro_Aguado_Merino/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Jose_Alejandro_Aguado_Merino/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +52,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< Updated upstream
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
@@ -54,8 +61,17 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "C:/Users/Usuario/Desktop/DAM/Segundo_2/Alexaguado_DI/T4/ProyectoJSON/TrabajoJSON",
     "settings.editor.selected.configurable": "preferences.JavaFX"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Desktop/DAM/Segundo_2/Alexaguado_DI/T4/Pestanias&quot;
+>>>>>>> Stashed changes
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.pizzeria.HelloApplication" />
