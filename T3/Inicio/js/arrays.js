@@ -9,6 +9,7 @@ jugadores.push("jugador 1","jugador 2","jugador 3");
 console.log(`Eliminado jugador ${jugadores.pop()}`); 
 
 // filtrar por una condicion indicada
+// funcion flecha con llaves --> return // si es solo una linea sin llaves -->no return
 jugadores.filter((item)=>
     // pregunta -> if 
     //T o F

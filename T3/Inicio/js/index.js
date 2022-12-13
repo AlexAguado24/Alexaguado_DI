@@ -57,6 +57,7 @@ if (!isNaN(op1) || !isNaN(op2)) {
     alert("Uno de los elementos no coincide con las condiciones")
 } */
 
+// constantes 
 const elementoNoCambiante = "Dato";
 elementoNoCambiante = "asasda";
 
