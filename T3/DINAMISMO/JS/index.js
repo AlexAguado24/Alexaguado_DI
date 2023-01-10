@@ -57,10 +57,30 @@ elementoLista.removeChild(nodoLiBuscado) */
 let seleccion = document.querySelector("select")
 
 
-document.querySelector("#boton-add").addEventListener("click", () => {
+/* document.querySelector("#boton-add").addEventListener("click", () => {
     let elementoLista = document.querySelector("ul.clase2");
     console.log(seleccion)
     let listaHTML = elementoLista.innerHTML + `<li class="list-group-item">Elemento 66</li>`
 
     elementoLista.innerHTML = listaHTML;
-})
+}) */
+
+let lista2 = document.querySelector("ul.clase2")
+let lista1 = document.querySelector("ul.clase1")
+let input = document.querySelector("input")
+
+document.querySelector("#boton-add").addEventListener("click", () => {
+    let listaSeleccionada = seleccion.value
+    let valorInput = input.value
+
+    if (listaSeleccionada == 1 || listaSeleccionada == 2 || valorInput.length > 0) {
+       listaSeleccionada == 1 ? agregarLi(lista1,valorInput): agregarLi(lista2,valorInput);
+    } else {
+        alert("Alguno de los campor no cumple con la condicion")
+    }
+});
+
+function agregarLi(lista, texto) {
+    let listaHTML = lista.innerHTML + `<li class="list-group-item">${texto}</li>`;
+            lista.innerHTML = listaHTML;
+}
