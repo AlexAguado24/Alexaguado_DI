@@ -9,6 +9,7 @@ nota2.agregarTarea(new TareaMultimedia("Titulo Multimedia4", "./ruta"));
 let nota3 = new Nota("Titulo3", "Descripcion3", new Date());
 let nota4 = new Nota("Titulo4", "Descripcion4", new Date());
 
+let fila = document.querySelector(".row")
 
 let planificador = {
     notas: [
