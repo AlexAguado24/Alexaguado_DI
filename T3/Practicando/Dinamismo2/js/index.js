@@ -5,7 +5,6 @@ console.log(elementoPorTag);
 let elementoPorClass = document.getElementsByClassName("m-4")
 console.log(elementoPorClass); */
 
-
 //# para id/ .class para clases / tag para etiquetas
 //elemento unico -> primer elemento -> Nodo
 //let elementoQuery = document.querySelector("#lista")
@@ -19,7 +18,6 @@ console.log(elementoPorClass); */
 elementosQuery.forEach(element => {
     console.log(element.classList.contains("elemento1"));
 }); */
-
 
 //agregar
 // 1- crearel li
@@ -43,26 +41,29 @@ elementoLista.innerHTML=listaHTML */
 /* let elementoLista = document.querySelector("ul.clase2")
 let elementoBorrar = document.querySelector(".elemento3")
 elementoLista.removeChild(elementoBorrar) */
-let elementoLista1 = document.querySelector("ul.clase1")
-let elementoLista2 = document.querySelector("ul.clase2")
+let elementoLista1 = document.querySelector("ul.clase1");
+let elementoLista2 = document.querySelector("ul.clase2");
+let valorInput = document.querySelector("input");
 
-let selecction = document.querySelector("select")
+let selecction = document.querySelector("select");
 console.log(selecction.value);
 
-document.querySelector("#boton_add").addEventListener('click',()=>{
-    console.log(selecction.value);
+document.querySelector("#boton_add").addEventListener("click", () => {
+  console.log(selecction.value);
 
-    if (selecction.value == 1) {
-        let listaHTML = elementoLista1.innerHTML+
-        `<li class="list-group-item elemento1">Elemento Nuevo</li>`;
+  if (selecction.value == 1) {
+    let listaHTML =
+      elementoLista1.innerHTML +
+      `<li class="list-group-item elemento1">${valorInput.value}</li>`;
 
-        elementoLista1.innerHTML=listaHTML
-    } else {
-        let listaHTML = elementoLista2.innerHTML+
-        `<li class="list-group-item elemento1">Elemento Nuevo</li>`;
+    elementoLista1.innerHTML = listaHTML;
+    valorInput.innerText = "";
+  } else {
+    let listaHTML =
+      elementoLista2.innerHTML +
+      `<li class="list-group-item elemento1">${valorInput.value}</li>`;
 
-        elementoLista2.innerHTML=listaHTML
-    }
-
-    
-})
+    elementoLista2.innerHTML = listaHTML;
+    valorInput.innerText = "";
+  }
+});

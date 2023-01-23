@@ -1,5 +1,5 @@
 //let urlStringProductos = "https://dummyjson.com/products";
-let urlStringProductos = "https://dummyjson.com/products/search?q=";
+let urlStringProductos = "https://dummyjson.com/products/category/";
 let urlStringCategorias = "https://dummyjson.com/products/categories";
 
 /* fetch(urlString)
@@ -34,11 +34,15 @@ botonFiltro.addEventListener("click", (e) => {
   cargarProductos(categoria);
 });
 
+function borrarProductos() {
+  rowCartas.innerHTML = "";
+}
 function cargarProductos(categoria) {
-  categoria =
+  /* categoria =
     categoria.charAt(0).toLocaleUpperCase() +
-    categoria.substring(1, categoria.length - 1);
+    categoria.substring(1, categoria.length - 1); */
   console.log(categoria);
+  borrarProductos();
   fetch(urlStringProductos + categoria)
     .then((res) => {
       return res.json();

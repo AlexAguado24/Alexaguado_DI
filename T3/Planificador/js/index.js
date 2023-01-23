@@ -29,6 +29,17 @@ let planificador = {
         { titulo: "titulo n1", completa: true, fichero: "./ejemplo" },
         { titulo: "titulo n2", completa: true, fichero: "./ejemplo" },
         { titulo: "titulo n2", completa: true, fichero: "./ejemplo" },
+        { titulo: "titulo n2", completa: true, fichero: "./ejemplo" },
+      ],
+    },
+    {
+      fecha: new Date(),
+      titulo: "Nota 5",
+      descripcion: "Descripcion de la nota 5",
+      completa: false,
+      tareas: [
+        { titulo: "titulo n1", completa: true, fichero: "./ejemplo" },
+        { titulo: "titulo n2", completa: true, fichero: "./ejemplo" },
       ],
     },
   ],
