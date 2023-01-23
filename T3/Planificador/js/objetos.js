@@ -1,5 +1,5 @@
-let ejemploObjeto = new ClaseEjemplo("p1", "p2", ["p3"]);
-ejemploObjeto.mostrarDatos();
+//let ejemploObjeto = new ClaseEjemplo("p1", "p2", ["p3"]);
+//ejemploObjeto.mostrarDatos();
 
 // una clase que represente una nota
 /* una nota tiene un titulo,
