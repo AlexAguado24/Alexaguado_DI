@@ -69,6 +69,11 @@ function cargarProductos(categoria) {
     });
 }
 
+
+
+
+
+
 function cargarCategorias() {
   fetch(urlStringCategorias)
     .then((res) => {
