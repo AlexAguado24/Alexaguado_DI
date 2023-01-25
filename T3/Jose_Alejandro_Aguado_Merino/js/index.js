@@ -44,13 +44,12 @@ function cargarMonedas() {
 function cargarCartas(idMoneda) {
     console.log(urlDetalles+idMoneda);
     //borrarCarta()
-    fetch(urlDetalles + idMoneda)
-
+    fetch(urlDetalles + idMoneda) 
         .then((res) => {
             return res.json();
         })
         .then((res1) => {
-                rowCartas.innerHTML +=
+                rowCartas.innerHTML =
                     `<div class="col">
                 <div class="card" style="width: 18rem;">
                 <div class="card-body">
@@ -72,11 +71,11 @@ function cargarCartas(idMoneda) {
         })
 }
 
-botonAgregar.addEventListener("click", ()=>{
+/* botonAgregar.addEventListener("click", ()=>{
     function aniadirFav() {
         arrayFavs.push(moneda)
     }
-})
+}) */
 
 
 
