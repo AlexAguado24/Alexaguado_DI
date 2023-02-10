@@ -6,11 +6,11 @@
   <input class="form-control m-4" placeholder="introduce nombre" type="text"#inputNombre/>
   <input class="form-control m-4" placeholder="introduce apellido" type="text"#inputApellido/>
   <select class="form-select m-4" aria-label="Default select example" #inputSelect>
-    <option selected value="1">ASIR</option>
-    <option value="2">DAM</option>
-    <option value="3">DAW</option>
+    <option selected value="ASIR">ASIR</option>
+    <option value="DAM">DAM</option>
+    <option value="DAW">DAW</option>
   </select>
-  <div class="form-check form-check-inline m-4">
+  <div class="form-check form-check-inline m-4" #inputCheckRadio>
     <input class="form-check-input" name="estudios" type="radio" id="radio1" value="uno">
     <label class="form-check-label" for="radio1">Bachiller</label>
   </div>
@@ -23,12 +23,18 @@
     <label class="form-check-label" for="radio3">Universidad</label>
   </div>
   <div class="form-check m-4">
-    <input class="form-check-input" type="checkbox" value="" id="experiencia">
+    <input class="form-check-input" type="checkbox" id="experiencia" >
     <label class="form-check-label" for="experiencia">
       Experiencia
     </label>
   </div>
-  <button class="btn btn-primary m-4" (click)="pulsacionBotonInicial(alumno.nombre)">Agregar Alumno</button>
+  <button class="btn btn-primary m-4" (click)="pulsacionBotonInicial(inputNombre.value,inputApellido.value ,inputSelect.value , inputCheckRadio)">Agregar Alumno</button>
+  <div class="container m-4">
+    <p class="m-4">Nombre: {{alumno.nombre}}</p>
+    <p class="m-4">Apellido: {{alumno.apellido}}</p>
+    <p class="m-4">Estudios: {{alumno.estudios}}</p>
+    <p class="m-4">Ciclo: {{alumno.ciclo}}</p>
+  </div>
 </div>
 
 

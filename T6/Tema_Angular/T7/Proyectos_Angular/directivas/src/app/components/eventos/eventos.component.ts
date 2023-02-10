@@ -15,13 +15,12 @@ export class EventosComponent {
   }
   urlImagen = 'src=https://assets.stickpng.com/images/5847ea22cef1014c0b5e4833.png'
 
-  pulsacionBotonInicial (nombre: string, apellido: string, estudios: string, ciclo: string ) {
+  pulsacionBotonInicial (nombre: string, apellido: string, estudios: string, ciclo:any) {
     /* console.log(`nombre pasado: ${nombre}, edad pasada: ${edad}`); */
     /* this.alumno.nombre = nombre; */
     this.alumno.nombre = nombre
     this.alumno.apellido = apellido
     this.alumno.estudios = estudios
     this.alumno.ciclo = ciclo
-
   }
 }
