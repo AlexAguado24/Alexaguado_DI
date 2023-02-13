@@ -6,35 +6,36 @@
   <input class="form-control m-4" placeholder="introduce nombre" type="text"#inputNombre/>
   <input class="form-control m-4" placeholder="introduce apellido" type="text"#inputApellido/>
   <select class="form-select m-4" aria-label="Default select example" #inputSelect>
-    <option selected value="ASIR">ASIR</option>
-    <option value="DAM">DAM</option>
-    <option value="DAW">DAW</option>
+    <option>ASIR</option>
+    <option>DAM</option>
+    <option>DAW</option>
   </select>
-  <div class="form-check form-check-inline m-4" #inputCheckRadio>
-    <input class="form-check-input" name="estudios" type="radio" id="radio1" value="uno">
+  <div class="form-check form-check-inline m-4">
+    <input class="form-check-input" (change)="capturaCambio(radioBachiller.value)" #radioBachiller name="estudios" type="radio" id="radio1" value="Bachiller">
     <label class="form-check-label" for="radio1">Bachiller</label>
   </div>
   <div class="form-check form-check-inline m-4">
-    <input class="form-check-input" name="estudios" type="radio" id="radio2" value="dos">
+    <input class="form-check-input" (change)="capturaEvento($event)" #radioFp name="estudios" type="radio" id="radio2" value="FP">
     <label class="form-check-label" for="radio2">FP</label>
   </div>
   <div class="form-check form-check-inline m-4">
-    <input class="form-check-input" name="estudios" type="radio" id="radio3" value="tres">
+    <input class="form-check-input" (change)="capturaCambio(radioUniversidad.value)" #radioUniversidad name="estudios" type="radio" id="radio3" value="Universidad">
     <label class="form-check-label" for="radio3">Universidad</label>
   </div>
   <div class="form-check m-4">
-    <input class="form-check-input" type="checkbox" id="experiencia" >
+    <input class="form-check-input" (change)="cambioEstado(checkExperiencia.checked)" type="checkbox" id="experiencia" #checkExperiencia>
     <label class="form-check-label" for="experiencia">
       Experiencia
     </label>
   </div>
-  <button class="btn btn-primary m-4" (click)="pulsacionBotonInicial(inputNombre.value,inputApellido.value ,inputSelect.value , inputCheckRadio)">Agregar Alumno</button>
-  <div class="container m-4">
-    <p class="m-4">Nombre: {{alumno.nombre}}</p>
-    <p class="m-4">Apellido: {{alumno.apellido}}</p>
-    <p class="m-4">Estudios: {{alumno.estudios}}</p>
-    <p class="m-4">Ciclo: {{alumno.ciclo}}</p>
-  </div>
+  <button class="btn btn-primary m-4" (click)="capturaValores(inputNombre.value,inputApellido.value,inputSelect.value)">Agregar Alumno</button>
+</div>
+<div class="container m-4">
+  <p>{{alumno.nombre}}</p>
+  <p>{{alumno.apellido}}</p>
+  <p>{{alumno.estudios}}</p>
+  <p>{{alumno.ciclo}}</p>
+  <p>{{alumno.experiencia}}</p>
 </div>
 
 
