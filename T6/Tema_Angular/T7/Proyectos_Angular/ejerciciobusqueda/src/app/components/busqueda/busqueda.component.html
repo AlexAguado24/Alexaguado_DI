@@ -3,55 +3,72 @@
     <div class="col-4">
       <h1>Formulario</h1>
       <div class="container m-4">
-        <input class="form-control m-4" placeholder="introduce nombre" type="text"#inputNombre/>
-        <input class="form-control m-4" placeholder="introduce apellido" type="text"#inputApellido/>
-        <input class="form-control m-4" placeholder="introduce edad" type="number" min="18" max="60" #inputEdad/>
+        <input class="form-control m-4" placeholder="introduce nombre" type="text" #inputNombre />
+        <input class="form-control m-4" placeholder="introduce apellido" type="text" #inputApellido />
+        <input class="form-control m-4" placeholder="introduce edad" type="number" min="18" max="60" #inputEdad />
         <select class="form-select m-4" aria-label="Default select example" #inputSelect>
           <option>ASIR</option>
           <option>DAM</option>
           <option>DAW</option>
         </select>
         <div class="form-check form-check-inline m-4">
-          <input class="form-check-input" #radioBachiller (change)="capturaCambioEstudio($event)" name="estudios" type="radio" id="radio1" value="Bachiller">
+          <input class="form-check-input" #radioBachiller (change)="capturaCambioEstudio($event)" name="estudios"
+            type="radio" id="radio1" value="Bachiller">
           <label class="form-check-label" for="radio1">Bachiller</label>
         </div>
         <div class="form-check form-check-inline m-4">
-          <input class="form-check-input" #radioFp (change)="capturaCambioEstudio($event)" name="estudios" type="radio" id="radio2" value="FP">
+          <input class="form-check-input" #radioFp (change)="capturaCambioEstudio($event)" name="estudios" type="radio"
+            id="radio2" value="FP">
           <label class="form-check-label" for="radio2">FP</label>
         </div>
         <div class="form-check form-check-inline m-4">
-          <input class="form-check-input" #radioUniversidad (change)="capturaCambioEstudio($event)" name="estudios" type="radio" id="radio3" value="Universidad">
+          <input class="form-check-input" #radioUniversidad (change)="capturaCambioEstudio($event)" name="estudios"
+            type="radio" id="radio3" value="Universidad">
           <label class="form-check-label" for="radio3">Universidad</label>
         </div>
-      <div>
-        <button class="btn btn-primary m-4" (click)="agregarAlumno(inputNombre.value ,inputApellido.value ,inputEdad.value ,inputSelect.value)">Agregar Alumno</button>
+        <div>
+          <button class="btn btn-primary m-4"
+            (click)="agregarAlumno(inputNombre.value ,inputApellido.value ,inputEdad.value ,inputSelect.value)">Agregar
+            Alumno</button>
+        </div>
       </div>
     </div>
+    <div class="col-8">
+      <p class="m-4">Numero de Alumnos registrados: {{arrayAlumnos.length}}</p>
+      <p class="m-4">Buscar por ciclo:</p>
+      <select class="form-select m-4" #selectCiclo>
+        <option>ASIR</option>
+        <option>DAM</option>
+        <option>DAW</option>
+      </select>
+      <p class="m-4">Buscar por estudios:</p>
+      <select class="form-select m-4" #selectEstudios>
+        <option>FP</option>
+        <option>Universidad</option>
+        <option>Bachiller</option>
+      </select>
+      <div class="form-check form-check-inline m-4">
+        <input class="form-check-input" #inputFiltro1 (change)="capturaCambioFiltro($event)" name="estudios"
+          type="radio" id="radio1" value="1">
+        <label class="form-check-label" for="radio1">Filtro1</label>
+      </div>
+      <div class="form-check form-check-inline m-4">
+        <input class="form-check-input" #inputFiltro2 (change)="capturaCambioFiltro($event)" name="estudios"
+          type="radio" id="radio2" value="2">
+        <label class="form-check-label" for="radio2">Filtro2</label>
+      </div>
+      <div>
+        <button class="btn btn-primary m-4"
+          (click)="filtrarAlumno(selectCiclo.value,selectEstudios.value)">Filtrar</button>
+      </div>
+      <span [ngSwitch]="numeroAlumnosFiltro">
+        <div *ngSwitchCase="0">
+
+        </div>
+        <div *ngSwitchCase="1">
+
+        </div>
+      </span>
+
+    </div>
   </div>
-  <div class="col-8">
-    <p class="m-4">Numero de Alumnos registrados: {{arrayAlumnos.length}}</p>
-    <p class="m-4">Buscar por ciclo:</p>
-    <select class="form-select m-4" #selectCiclo>
-      <option>ASIR</option>
-      <option>DAM</option>
-      <option>DAW</option>
-    </select>
-    <p class="m-4">Buscar por estudios:</p>
-    <select class="form-select m-4" #selectEstudios>
-      <option>FP</option>
-      <option>Universidad</option>
-      <option>Bachiller</option>
-    </select>
-    <div class="form-check form-check-inline m-4">
-      <input class="form-check-input" #inputFiltro1  (change)="capturaCambioFiltro($event)" name="estudios" type="radio" id="radio1" value="1">
-      <label class="form-check-label" for="radio1">Filtro1</label>
-    </div>
-    <div class="form-check form-check-inline m-4">
-      <input class="form-check-input" #inputFiltro2 (change)="capturaCambioFiltro($event)" name="estudios" type="radio" id="radio2" value="2">
-      <label class="form-check-label" for="radio2">Filtro2</label>
-    </div>
-    <div>
-      <button class="btn btn-primary m-4">Filtrar</button>
-    </div>
-  </div>
-</div>
