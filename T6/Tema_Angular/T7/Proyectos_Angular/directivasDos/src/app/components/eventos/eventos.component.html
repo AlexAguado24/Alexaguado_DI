@@ -1,0 +1,86 @@
+<img style="width: 30%" src="{{ img }}" alt="" />
+<p>Componente realizado por {{ alumno.nombre }}</p>
+<div class="row">
+  <div class="col">
+    <input
+      class="form-control m-4"
+      placeholder="introduce nombre"
+      type="text"
+      #inputNombre
+    />
+    <input
+      class="form-control m-4"
+      placeholder="introduce apellido"
+      type="text"
+      #inputApellido
+    />
+    <select
+      class="form-select m-4"
+      aria-label="Default select example"
+      #inputSelect
+    >
+      <option>ASIR</option>
+      <option>DAM</option>
+      <option>DAW</option>
+    </select>
+    <div class="form-check form-check-inline m-4">
+      <input
+        class="form-check-input"
+        #radioBachiller
+        name="estudios"
+        type="radio"
+        id="radio1"
+        value="Bachiller"
+        (change)="capturarEstudio($event)"
+      />
+      <label class="form-check-label" for="radio1">Bachiller</label>
+    </div>
+    <div class="form-check form-check-inline m-4">
+      <input
+        class="form-check-input"
+        #radioFp
+        name="estudios"
+        type="radio"
+        id="radio2"
+        value="FP"
+        (change)="capturarEstudio($event)"
+      />
+      <label class="form-check-label" for="radio2">FP</label>
+    </div>
+    <div class="form-check form-check-inline m-4">
+      <input
+        class="form-check-input"
+        #radioUniversidad
+        name="estudios"
+        type="radio"
+        id="radio3"
+        value="Universidad"
+        (change)="capturarEstudio($event)"
+      />
+      <label class="form-check-label" for="radio3">Universidad</label>
+    </div>
+    <div>
+      <button
+        class="btn btn-primary m-4"
+        (click)="
+          capturaValores(
+            inputNombre.value,
+            inputApellido.value,
+            inputSelect.value
+          )
+        "
+      >
+        Agregar Alumno
+      </button>
+    </div>
+  </div>
+  <div class="col">
+    <h1>Resultado</h1>
+    <p>
+      {{ alumno.nombre }}
+      {{ alumno.apellido }}
+      {{ alumno.ciclo }}
+      {{ alumno.estudios }}
+    </p>
+  </div>
+</div>
