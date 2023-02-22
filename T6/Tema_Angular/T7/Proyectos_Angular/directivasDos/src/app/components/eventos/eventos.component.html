@@ -60,10 +60,10 @@
       <label class="form-check-label" for="radio3">Universidad</label>
     </div>
     <div>
-      <button
+      <button 
         class="btn btn-primary m-4"
         (click)="
-          capturaValores(
+          capturarDatos(
             inputNombre.value,
             inputApellido.value,
             inputSelect.value
@@ -76,11 +76,9 @@
   </div>
   <div class="col">
     <h1>Resultado</h1>
-    <p>
-      {{ alumno.nombre }}
-      {{ alumno.apellido }}
-      {{ alumno.ciclo }}
-      {{ alumno.estudios }}
-    </p>
+    <p>{{ alumno.nombre }}</p>
+    <p>{{ alumno.apellido }}</p>
+    <p>{{ alumno.ciclo }}</p>
+    <p>{{ alumno.estudios }}</p>
   </div>
 </div>

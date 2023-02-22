@@ -19,8 +19,8 @@ export class EventosComponent {
 
   img ="https://assets.stickpng.com/images/5847ea22cef1014c0b5e4833.png"
 
-  capturaValores(nombre:string, apellido:string, ciclo:string) {
 
+  capturarDatos(nombre:string,apellido:string,ciclo:string) {
     this.alumno.nombre = nombre
     this.alumno.apellido = apellido
     this.alumno.ciclo = ciclo
