@@ -9,4 +9,13 @@ export class DirectivaifComponent {
 
   mostrarElemento = false
 
+  cambiarValor() {
+    this.mostrarElemento = !this.mostrarElemento
+  }
+
+  comprobarEstado(nombre:string) {
+    nombre == 'Borja' ? this.mostrarElemento= true : this.mostrarElemento= false
+  }
+
+
 }

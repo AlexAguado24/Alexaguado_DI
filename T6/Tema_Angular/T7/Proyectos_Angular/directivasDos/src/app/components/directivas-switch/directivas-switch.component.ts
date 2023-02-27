@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class DirectivasSwitchComponent {
 
+  opcion = 1;
+
+  cambioOpcion(valor:any) {
+    this.opcion = valor.target.value
+  }
+
 }

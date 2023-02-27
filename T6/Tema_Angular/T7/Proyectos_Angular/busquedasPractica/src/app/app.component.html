@@ -1,0 +1,156 @@
+<div class="container m-4">
+  <h2 class="mb-4">Busquedas</h2>
+  <div class="row">
+    <div class="col-4">
+      <h3>Formulario de Agregar</h3>
+      <div class="container m-4">
+        <input
+          class="form-control m-4"
+          placeholder="introduce nombre"
+          type="text"
+          #inputNombre
+        />
+        <input
+          class="form-control m-4"
+          placeholder="introduce apellido"
+          type="text"
+          #inputApellido
+        />
+        <input
+          class="form-control m-4"
+          placeholder="introduce edad"
+          type="number"
+          max="60"
+          min="18"
+          #inputEdad
+        />
+        <select
+          class="form-select m-4"
+          aria-label="Default select example"
+          #inputSelect
+        >
+          <option>ASIR</option>
+          <option>DAM</option>
+          <option>DAW</option>
+        </select>
+        <div class="form-check form-check-inline m-4">
+          <input
+            class="form-check-input"
+            #radioBachiller
+            name="estudios"
+            type="radio"
+            id="radio1"
+            value="Bachiller"
+            (change)="obtenerEstudio($event)"
+          />
+          <label class="form-check-label" for="radio1">Bachiller</label>
+        </div>
+        <div class="form-check form-check-inline m-4">
+          <input
+            class="form-check-input"
+            #radioFp
+            name="estudios"
+            type="radio"
+            id="radio2"
+            value="FP"
+            (change)="obtenerEstudio($event)"
+          />
+          <label class="form-check-label" for="radio2">FP</label>
+        </div>
+        <div class="form-check form-check-inline m-4">
+          <input
+            class="form-check-input"
+            #radioUniversidad
+            name="estudios"
+            type="radio"
+            id="radio3"
+            value="Universidad"
+            (change)="obtenerEstudio($event)"
+          />
+          <label class="form-check-label" for="radio3">Universidad</label>
+        </div>
+        <button
+          class="btn btn-primary m-4"
+          (click)="
+            agregarAlumno(
+              inputNombre.value,
+              inputApellido.value,
+              inputEdad.value,
+              inputSelect.value
+            )
+          "
+        >
+          Agregar Alumno
+        </button>
+      </div>
+    </div>
+    <div class="col-8 mr-4">
+      <h3>Formulario de busqueda</h3>
+      <p>Numero de alumnos registrados: {{ alumnos.length }}</p>
+      <div>
+        <label>Buscar por ciclo</label>
+        <select #selectFiltro>
+          <option>Dam</option>
+          <option>Asir</option>
+          <option>Daw</option>
+        </select>
+      </div>
+      <div>
+        <label>Buscar por Estudios</label>
+        <select #selectEstudio>
+          <option>FP</option>
+          <option>Bach</option>
+          <option>UNI</option>
+        </select>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="estudios"
+          id="inlineRadio1"
+          value="1"
+          (change)="cambioFiltro($event)"
+        />
+        <label class="form-check-label" for="inlineRadio1">Filtro Ciclo</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="estudios"
+          id="inlineRadio2"
+          value="2"
+          (change)="cambioFiltro($event)"
+        />
+        <label class="form-check-label" for="inlineRadio2"
+          >Filtro estudios</label
+        >
+      </div>
+      <button
+        class="btn btn-primary mb-4"
+        (click)="filtrar(selectEstudio.value, selectFiltro.value)"
+      >
+        filtrar
+      </button>
+
+      <ng-container *ngIf="filtrando; then thenTemplate"></ng-container>
+      <ng-template #thenTemplate>
+        <div [ngSwitch]="numeroAlumnosFiltro">
+          <div *ngSwitchCase="0" class="alert alert-danger" role="alert">
+            El numero de alumnos es {{ numeroAlumnosFiltro }}
+          </div>
+          <div *ngSwitchCase="1" class="alert alert-warning" role="alert">
+            El numero de alumnos es {{ numeroAlumnosFiltro }}
+          </div>
+          <div *ngSwitchDefault class="alert alert-succes" role="alert">
+            El numero de alumnos es {{ numeroAlumnosFiltro }}
+          </div>
+        </div>
+        <!-- <div class="alert alert-primary" role="alert">
+          A simple primary alert—check it out!
+        </div> -->
+      </ng-template>
+    </div>
+  </div>
+</div>

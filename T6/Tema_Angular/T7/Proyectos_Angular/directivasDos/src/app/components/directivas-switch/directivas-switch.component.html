@@ -1,1 +1,45 @@
-<p>directivas-switch works!</p>
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    (change)="cambioOpcion($event)"
+    type="radio"
+    name="inlineRadioOptions"
+    id="inlineRadio1"
+    value="1"
+  />
+  <label class="form-check-label" for="inlineRadio1">1</label>
+</div>
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    (change)="cambioOpcion($event)"
+    type="radio"
+    name="inlineRadioOptions"
+    id="inlineRadio2"
+    value="2"
+  />
+  <label class="form-check-label" for="inlineRadio2">2</label>
+</div>
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    (change)="cambioOpcion($event)"
+    type="radio"
+    name="inlineRadioOptions"
+    id="inlineRadio3"
+    value="3"
+  />
+  <label class="form-check-label" for="inlineRadio3">3</label>
+</div>
+
+<span [ngSwitch]="opcion">
+  <div *ngSwitchCase="1" class="alert alert-primary" role="alert">
+    Opcion 1 seleccionada
+  </div>
+  <div *ngSwitchCase="2" class="alert alert-warning" role="alert">
+    Opcion 2 seleccionada
+  </div>
+  <div *ngSwitchCase="3" class="alert alert-success" role="alert">
+    Opcion 3 seleccionada
+  </div>
+</span>
