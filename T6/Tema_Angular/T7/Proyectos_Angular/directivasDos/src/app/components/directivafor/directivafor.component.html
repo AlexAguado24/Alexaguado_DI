@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col" *ngFor="let item of asignaturas">
+    <div class="card" style="width: 18rem">
+      <img [src]="item.imagen" class="card-img-top" [alt]="item.siglas" />
+      <div class="card-body">
+        <h5 class="card-title">{{ item.nombre }}</h5>
+        <p class="card-text">
+          {{ item.siglas }} <br />
+          {{ item.profesor }} <br />
+          {{ item.curso }} <br />
+          {{ item.ciclo }}
+        </p>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let cono of item.conocimientos">
+            {{ cono }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button (click)="aniadirElemento(inputElemento.value)">añadir</button>
+<input type="text" #inputElemento />
+
+<ul>
+  <li *ngFor="let item of elementos">{{ item }}</li>
+</ul>
