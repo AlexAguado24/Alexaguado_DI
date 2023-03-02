@@ -1,0 +1,39 @@
+<div class="container" >
+  <div class="row">
+    <div class="col">
+      <input type="text" placeholder="Introduce marca" #inputMarca>
+    </div>
+    <div class="col">
+      <input type="number"
+      placeholder="Indica CV"
+  min="300"
+  max="800"
+  #inputCV
+  >
+    </div>
+    <div class="col">
+      <button class="btn btn-primary" (click)="buscarCoches(inputMarca.value, inputCV.value)">Buscar</button>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="alert alert-primary" role="alert">
+    El resultado es {{arrayCoches.length}}
+  </div>
+</div>
+<div class="row">
+    <div class="col" *ngFor="let item of arrayCoches">
+      <div class="card" style="width: 18rem;">
+        <img [src]="item.imagen" class="card-img-top" [alt]="item.nombre">
+        <div class="card-body">
+          <h5 class="card-title">{{item.nombre}}</h5>
+          <p class="card-text">
+            {{item.marca}} <br>
+            {{item.tipo}} <br>
+            {{item.cv}} <br>
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
+

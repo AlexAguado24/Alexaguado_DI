@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col" *ngFor="let item of cochesUtilitarios">
+    <div class="card" style="width: 18rem;">
+      <img [src]="item.imagen" class="card-img-top" [alt]="item.nombre">
+      <div class="card-body">
+        <h5 class="card-title">{{item.nombre}}</h5>
+        <p class="card-text">
+          {{item.marca}} <br>
+          {{item.tipo}} <br>
+          {{item.cv}} <br>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
