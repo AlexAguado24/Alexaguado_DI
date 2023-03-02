@@ -39,8 +39,8 @@ export class AsignaturasService {
       nombre: 'Programación',
       imagen : 'https://cdn.euroinnova.edu.es/img/subidasEditor/programacion-1605169849.webp',
       siglas : 'PP',
-      curso: 2,
-      ciclo: 'DAM',
+      curso: 1,
+      ciclo: 'DAM|DAW',
       profesor:'Borja',
       conocimientos: ['java']
     },
@@ -49,9 +49,27 @@ export class AsignaturasService {
       imagen : 'https://cdn.euroinnova.edu.es/img/subidasEditor/programacion-1605169849.webp',
       siglas : 'BBDD',
       curso: 1,
-      ciclo: 'DAM',
+      ciclo: 'DAM|DAW',
       profesor:'Edu',
       conocimientos: ['MYSQL','workbench']
+    },
+    {
+      nombre: 'Desarrollo cliente',
+      imagen : 'https://reactjs.org/logo-og.png',
+      siglas : 'DC',
+      curso: 2,
+      ciclo: 'DAW',
+      profesor:'Edu',
+      conocimientos: ['JS','Express','React']
+    },
+    {
+      nombre: 'Desarrollo Servidor',
+      imagen : 'https://www.qualitydevs.com/wp-content/uploads/2021/05/PHP-Quality-Devs-1-1288x724.jpg',
+      siglas : 'DS',
+      curso: 2,
+      ciclo: 'DAW',
+      profesor:'Edu',
+      conocimientos: ['PHP','Servicios']
     },
   ]
   constructor() { }
@@ -59,4 +77,24 @@ export class AsignaturasService {
   getAllAsignaturas(): Asignatura[] {
     return this.asignaturas
   }
+
+  getAsignaturasFiltradas(numero: number): Asignatura[]{
+
+    if (numero == 1 || numero == 2) {
+      return this.asignaturas.filter((item)=>item.curso == numero)
+    } else {
+      return this.asignaturas;
+    }
+  }
+
+  getFiltroCiclo(cicloA:string): Asignatura[]{
+
+    if (cicloA == 'DAM' || cicloA == 'DAW') {
+      return this.asignaturas.filter((item)=>item.ciclo == cicloA)
+    } else {
+      return this.asignaturas;
+    }
+
+  }
+
 }

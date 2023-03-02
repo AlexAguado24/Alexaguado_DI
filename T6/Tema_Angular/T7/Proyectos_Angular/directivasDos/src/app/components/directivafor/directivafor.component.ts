@@ -18,7 +18,17 @@ export class DirectivaforComponent {
   asignaturas: Asignatura[]
 
   constructor(private servicioAsignaturas:AsignaturasService){
-    this.asignaturas = servicioAsignaturas.getAllAsignaturas();
+    this.asignaturas = servicioAsignaturas.getAllAsignaturas()
+  }
+
+  evaluarCambio(evento:any){
+
+    this.asignaturas = this.servicioAsignaturas.getAsignaturasFiltradas(Number(evento.target.value))
+
+  }
+
+  buscarCiclo(ciclo:string){
+    this.asignaturas = this.servicioAsignaturas.getFiltroCiclo(ciclo)
   }
 
 

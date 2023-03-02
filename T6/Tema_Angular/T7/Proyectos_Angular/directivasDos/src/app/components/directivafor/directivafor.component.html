@@ -1,3 +1,40 @@
+<button (click)="buscarCiclo(inputElemento.value)">Buscar</button>
+<input type="text" #inputElemento />
+
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    (change)="evaluarCambio($event)"
+    type="radio"
+    name="inlineRadioOptions"
+    id="inlineRadio1"
+    value="1"
+  />
+  <label class="form-check-label" for="inlineRadio1">asignaturas 1</label>
+</div>
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    (change)="evaluarCambio($event)"
+    type="radio"
+    name="inlineRadioOptions"
+    id="inlineRadio2"
+    value="2"
+  />
+  <label class="form-check-label" for="inlineRadio2">asignaturas 2</label>
+</div>
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    (change)="evaluarCambio($event)"
+    type="radio"
+    name="inlineRadioOptions"
+    id="inlineRadio3"
+    value="3"
+  />
+  <label class="form-check-label" for="inlineRadio3">todas</label>
+</div>
+
 <div class="row">
   <div class="col" *ngFor="let item of asignaturas">
     <div class="card" style="width: 18rem">
@@ -19,9 +56,6 @@
     </div>
   </div>
 </div>
-
-<button (click)="aniadirElemento(inputElemento.value)">añadir</button>
-<input type="text" #inputElemento />
 
 <ul>
   <li *ngFor="let item of elementos">{{ item }}</li>
